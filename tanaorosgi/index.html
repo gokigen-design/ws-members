@@ -442,7 +442,7 @@
 
     /* ─── Camp CTA ───────────────────────────────────────────── */
     .camp-section {
-      background: linear-gradient(145deg, #1D4ED8 0%, #0EA5E9 100%);
+      background: linear-gradient(145deg, #E8739A 0%, #F09CB8 40%, #F9BC9A 100%);
       padding: 72px 24px;
       text-align: center;
       position: relative;
@@ -454,7 +454,7 @@
       position: absolute;
       top: -100px; right: -100px;
       width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -463,7 +463,7 @@
       position: absolute;
       bottom: -80px; left: -80px;
       width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,200,180,0.18) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -596,23 +596,24 @@
     .camp-detail-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 18px 48px;
-      background: rgba(255,255,255,0.15);
-      border: 2px solid rgba(255,255,255,0.6);
+      gap: 10px;
+      padding: 22px 64px;
+      background: linear-gradient(135deg, #FF2D78 0%, #FF6FA3 100%);
+      border: none;
       border-radius: 100px;
       color: #fff;
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 18px;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 10px 32px rgba(255,45,120,0.36);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .camp-detail-btn:hover {
-      background: rgba(255,255,255,0.25);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(255,45,120,0.48);
     }
 
     /* ─── Footer ────────────────────────────────────────────── */
@@ -931,7 +932,7 @@
       .homework-box { padding: 18px 16px; }
       .homework-list li { font-size: 13px; }
       .camp-flyer { max-width: 100%; margin-bottom: 24px; }
-      .camp-detail-btn { font-size: 15px; padding: 16px 32px; }
+      .camp-detail-btn { font-size: 16px; padding: 18px 40px; }
     }
 
     @media (max-width: 400px) {
