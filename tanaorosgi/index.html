@@ -578,6 +578,43 @@
       font-family: 'Cormorant Garamond', serif;
     }
 
+    /* ─── Camp Flyer Image ──────────────────────────────────── */
+    .camp-flyer {
+      margin: 0 auto 32px;
+      max-width: 460px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+    }
+
+    .camp-flyer-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .camp-detail-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 18px 48px;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 100px;
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .camp-detail-btn:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+    }
+
     /* ─── Footer ────────────────────────────────────────────── */
     footer {
       background: var(--text-dark);
@@ -893,6 +930,8 @@
       .camp-detail-item { font-size: 13px; padding: 12px 16px; }
       .homework-box { padding: 18px 16px; }
       .homework-list li { font-size: 13px; }
+      .camp-flyer { max-width: 100%; margin-bottom: 24px; }
+      .camp-detail-btn { font-size: 15px; padding: 16px 32px; }
     }
 
     @media (max-width: 400px) {
@@ -912,29 +951,8 @@
   <div class="hero-img-wrap">
     <picture>
       <source media="(max-width: 640px)" srcset="image/sp_fv.png">
-      <img src="image/pc_fv.png" alt="AI業務棚卸しワーク会 — その業務、実はAIに任せられるかも!?" class="hero-img-pc">
+      <img src="image/pc_fv1.png" alt="AI業務棚卸しワーク会 — その業務、実はAIに任せられるかも!?" class="hero-img-pc">
     </picture>
-  </div>
-  <div class="hero-dates">
-    <p class="hero-sub">日程候補 ｜ 60〜90分 ｜ 夜の部 ｜ オンライン開催</p>
-    <div class="date-cards">
-      <div class="date-card">
-        <span class="day">6/14</span>
-        土曜日・夜
-      </div>
-      <div class="date-card">
-        <span class="day">6/17</span>
-        火曜日・夜
-      </div>
-      <div class="date-card">
-        <span class="day">6/18</span>
-        水曜日・夜
-      </div>
-      <div class="date-card">
-        <span class="day">6/21</span>
-        土曜日・夜
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1244,64 +1262,6 @@
   </div>
 </section>
 
-<!-- ─── Wonder Examples ───────────────────────────────────── -->
-<section class="section">
-  <span class="section-label">Before & After</span>
-  <h2 class="section-title">
-    「え、これも自動化できるの？」<br>よくある発見の例
-  </h2>
-
-  <div class="wonder-grid">
-    <div class="wonder-card">
-      <span class="wonder-label">BEFORE</span>
-      <div class="wonder-before">毎朝SNSのコメントに1つずつ返信している（30〜60分）</div>
-      <div class="wonder-arrow">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-          <path d="M12 5v14M5 12l7 7 7-7" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span class="wonder-label">AI ができること</span>
-      <div class="wonder-after">返信の下書きをClaudeに生成してもらい、確認・送信だけ自分でやる → 10分に短縮</div>
-    </div>
-
-    <div class="wonder-card">
-      <span class="wonder-label">BEFORE</span>
-      <div class="wonder-before">問い合わせに毎回同じような内容を書いてメール返信（週5件・各20分）</div>
-      <div class="wonder-arrow">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-          <path d="M12 5v14M5 12l7 7 7-7" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span class="wonder-label">AI ができること</span>
-      <div class="wonder-after">テンプレートをClaudeで作り、状況に合わせた文面を自動生成 → 週2時間の削減</div>
-    </div>
-
-    <div class="wonder-card">
-      <span class="wonder-label">BEFORE</span>
-      <div class="wonder-before">月末に売上をExcelにまとめて、請求書を1件ずつ手打ちしている（月2〜3時間）</div>
-      <div class="wonder-arrow">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-          <path d="M12 5v14M5 12l7 7 7-7" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span class="wonder-label">AI ができること</span>
-      <div class="wonder-after">GASとClaudeを連携させて、データ入力 → 請求書PDF生成まで半自動化</div>
-    </div>
-
-    <div class="wonder-card">
-      <span class="wonder-label">BEFORE</span>
-      <div class="wonder-before">週次でクライアントへの進捗メールを毎回ゼロから書いている（週1・40分）</div>
-      <div class="wonder-arrow">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-          <path d="M12 5v14M5 12l7 7 7-7" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span class="wonder-label">AI ができること</span>
-      <div class="wonder-after">やったことのメモを渡すだけで、プロ品質の進捗報告文をClaudeが生成</div>
-    </div>
-  </div>
-</section>
-
 <!-- ─── Camp CTA ───────────────────────────────────────────── -->
 <section class="camp-section">
   <div class="camp-inner">
@@ -1364,6 +1324,18 @@
         </li>
       </ul>
     </div>
+
+    <div class="camp-flyer">
+      <img src="image/aitirasi.png" alt="AI合宿チラシ — AIオタクと行く、本気で遊び学ぶAI合宿" class="camp-flyer-img">
+    </div>
+
+    <a href="#" class="camp-detail-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      詳細はこちら
+    </a>
+
   </div>
 </section>
 
