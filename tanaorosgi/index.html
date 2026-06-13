@@ -442,7 +442,7 @@
 
     /* ─── Camp CTA ───────────────────────────────────────────── */
     .camp-section {
-      background: linear-gradient(145deg, #E8739A 0%, #F09CB8 40%, #F9BC9A 100%);
+      background: linear-gradient(145deg, #FFF0F5 0%, #FFE4EE 55%, #FFF8F5 100%);
       padding: 72px 24px;
       text-align: center;
       position: relative;
@@ -454,7 +454,7 @@
       position: absolute;
       top: -100px; right: -100px;
       width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -463,7 +463,7 @@
       position: absolute;
       bottom: -80px; left: -80px;
       width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(255,200,180,0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,200,220,0.35) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -491,14 +491,14 @@
       font-family: 'Noto Serif JP', serif;
       font-weight: 400;
       font-size: clamp(22px, 4vw, 32px);
-      color: #fff;
+      color: #C94E7A;
       line-height: 1.5;
       margin-bottom: 16px;
     }
 
     .camp-section p {
       font-size: 14px;
-      color: rgba(255,255,255,0.82);
+      color: #A84068;
       line-height: 1.85;
       margin-bottom: 36px;
     }
@@ -512,11 +512,11 @@
     }
 
     .camp-detail-item {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(201,78,122,0.2);
       border-radius: 12px;
       padding: 14px 22px;
-      color: #fff;
+      color: #C94E7A;
       font-size: 14px;
       line-height: 1.5;
       display: flex;
@@ -526,9 +526,15 @@
 
     .camp-detail-item svg { flex-shrink: 0; }
 
+    /* SVGアイコンをピンクに */
+    .camp-detail-item svg path[stroke],
+    .camp-detail-item svg rect[stroke],
+    .camp-detail-item svg circle[stroke] { stroke: #C94E7A; }
+    .camp-detail-item svg path[fill]:not([fill="none"]) { fill: #C94E7A; }
+
     .homework-box {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(201,78,122,0.2);
       border-radius: 16px;
       padding: 24px 28px;
       text-align: left;
@@ -539,12 +545,14 @@
       font-family: 'Noto Serif JP', serif;
       font-size: 15px;
       font-weight: 400;
-      color: #fff;
+      color: #C94E7A;
       margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
+    .homework-box h4 svg path { stroke: #C94E7A; }
 
     .homework-list {
       list-style: none;
@@ -558,7 +566,7 @@
       align-items: flex-start;
       gap: 10px;
       font-size: 14px;
-      color: rgba(255,255,255,0.85);
+      color: #A04065;
       line-height: 1.7;
     }
 
@@ -566,13 +574,13 @@
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(201,78,122,0.1);
+      border: 1px solid rgba(201,78,122,0.3);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 11px;
-      color: #fff;
+      color: #C94E7A;
       flex-shrink: 0;
       margin-top: 1px;
       font-family: 'Cormorant Garamond', serif;
@@ -607,13 +615,13 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-decoration: none;
-      box-shadow: 0 10px 32px rgba(255,45,120,0.36);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: none;
+      transition: transform 0.2s, opacity 0.2s;
     }
 
     .camp-detail-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(255,45,120,0.48);
+      opacity: 0.88;
     }
 
     /* ─── Footer ────────────────────────────────────────────── */
@@ -1266,7 +1274,6 @@
 <!-- ─── Camp CTA ───────────────────────────────────────────── -->
 <section class="camp-section">
   <div class="camp-inner">
-    <span class="camp-badge">Next Step — Camp</span>
 
     <h2>
       セッションで見つけた課題を<br>
@@ -1290,7 +1297,7 @@
       </div>
       <div class="camp-detail-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="rgba(255,255,255,0.7)"/>
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#C94E7A"/>
         </svg>
         静岡県 熱海
       </div>
