@@ -1029,15 +1029,15 @@
       <div class="timeline-sub">
         <div class="timeline-sub-item">
           <span class="bullet"></span>
-          <span>1週間のタスクを思いつく限り書き出す（10分）</span>
+          <span>毎週のタスク・やりたいけどできていないこと・手が止まっていることを書き出す（10分）</span>
         </div>
         <div class="timeline-sub-item">
           <span class="bullet"></span>
-          <span>下のプロンプトをClaudeにコピペして、「AIに全部任せられる・半分ずつ・人間がやる」の3分類に仕分け（15分）</span>
+          <span>Claudeにコピペして「丸ごと任せられる・一緒にやる・人間がやる」の3種類に仕分け（15分）</span>
         </div>
         <div class="timeline-sub-item">
           <span class="bullet"></span>
-          <span>「時間がかかる×AIに任せやすい」で優先順位マトリクスを作成（15分）</span>
+          <span>「インパクトが大きい×取り組みやすい」で最初に始めるものを決める（15分）</span>
         </div>
       </div>
     </div>
@@ -1050,7 +1050,7 @@
       </div>
       <span class="timeline-time">20 min</span>
       <h3>みんなでシェア</h3>
-      <p>「自動化できそうだったもの」を発表し合います。他の人の気づきが、自分のヒントになることがよくあります。</p>
+      <p>「Claudeで取り組みたい！」と思ったことを発表し合います。他の人の気づきが、自分のヒントになることがよくあります。</p>
     </div>
 
     <div class="timeline-item">
@@ -1079,7 +1079,7 @@
     <div class="step-block">
       <div class="step-header">
         <span class="step-badge">STEP 1</span>
-        <span class="step-name">タスクを全部書き出す<span class="step-time">— 10分</span></span>
+        <span class="step-name">仕事全体を書き出す<span class="step-time">— 10分</span></span>
       </div>
       <div class="prompt-box">
         <div class="prompt-header">
@@ -1098,17 +1098,24 @@
           </button>
         </div>
         <div class="prompt-body">
-          <p class="prompt-lead">【ここにあなたのビジネス内容】を実際のビジネスに書き換えて送信してください。</p>
+          <p class="prompt-lead">【ここにあなたのビジネス内容】を実際のビジネスに書き換えてから送信してください。</p>
           <div class="prompt-text" id="prompt-1">私は「ここにあなたのビジネスを書く（例：ネイルサロン経営、オンライン講座運営、ハンドメイド販売など）」をしています。
-私が1週間の中で繰り返しやっている仕事を整理したいです。
+ClaudeというAIと一緒に、仕事をもっと楽にしたいと思っています。
 
-まず私が思いつくものを書き出すので、カテゴリごとに整理してください。そのあと、「他にこういう作業もしていませんか？」と聞いてください。
+以下の3つに分けて思いつくものを書き出すので、カテゴリごとに整理してください。そのあと、「他にこういうことも当てはまりませんか？」と聞いてください。
 
-【私の1週間のタスク】
+【毎週繰り返しているタスク】
 ・
 ・
+
+【やりたいと思いつつ、ずっとできていないこと】
+（例：LPを作りたい、会員サイトを整備したい、SNS投稿を仕組み化したいなど）
 ・
-（↑ここに思いつくだけ書く）</div>
+・
+
+【時間がかかって困っていること・手が止まっていること】
+・
+・</div>
         </div>
       </div>
     </div>
@@ -1124,7 +1131,7 @@
     <div class="step-block">
       <div class="step-header">
         <span class="step-badge">STEP 2</span>
-        <span class="step-name">AIに仕分けしてもらう<span class="step-time">— 15分</span></span>
+        <span class="step-name">Claudeでできることを仕分け<span class="step-time">— 15分</span></span>
       </div>
       <div class="prompt-box">
         <div class="prompt-header">
@@ -1144,16 +1151,16 @@
         </div>
         <div class="prompt-body">
           <p class="prompt-lead">STEP 1 の会話の続きで、そのままこのプロンプトを送ります。</p>
-          <div class="prompt-text" id="prompt-2">ありがとう。では、さっき整理してくれたタスクを、以下の3つに仕分けしてください。
+          <div class="prompt-text" id="prompt-2">ありがとう。では、さっき整理してくれた内容を、以下の3つに仕分けしてください。
 
-🟢 AIに丸ごと任せられる
-→ 人間の判断がほぼ不要。ルールが決まっていて繰り返すもの
+🟢 Claudeに丸ごと任せられる
+→ 作成・自動化・代行ができるもの（LP制作、会員サイト、文章作成、自動返信、資料まとめなど）
 
-🟡 AIと人間で半分ずつ
-→ AIに下書きや準備をさせて、最後に人間がチェック・調整するもの
+🟡 Claudeがいれば格段に楽になる
+→ 下書き・構成・アイデア出しを手伝ってもらうと、ひとりでは難しかったことが進むもの
 
 🔴 人間がやるべき
-→ あなたの感性・判断・関係性が必要なもの
+→ あなたの感性・判断・関係性が必要で、AIには任せられないもの
 
 それぞれの理由も一言で教えてください。</div>
         </div>
@@ -1171,7 +1178,7 @@
     <div class="step-block">
       <div class="step-header">
         <span class="step-badge">STEP 3</span>
-        <span class="step-name">最初に自動化するものを決める<span class="step-time">— 10分</span></span>
+        <span class="step-name">最初にClaudeで取り組むことを決める<span class="step-time">— 10分</span></span>
       </div>
       <div class="prompt-box">
         <div class="prompt-header">
@@ -1193,18 +1200,18 @@
           <p class="prompt-lead">STEP 2 の結果をもとに、同じ会話でそのまま送ります。</p>
           <div class="prompt-text" id="prompt-3">仕分けの結果を見て、質問です。
 
-🟢と🟡の中から、以下の基準で「最初にAIに任せるべきもの」をベスト3で教えてください。
+🟢と🟡の中から、以下の基準で「最初にClaudeで取り組むべきもの」をベスト3で教えてください。
 
 選ぶ基準：
-・毎週やっていて頻度が高い
-・やるたびに「めんどくさい」と思う
-・やり方がだいたい決まっている
+・できたら仕事が大きく変わると感じる
+・ずっと気になっていてなかなか手をつけられていない
+・やり方がある程度イメージできる
 
 それぞれ「なぜこれが最初か」の理由もつけてください。</div>
           <hr class="prompt-divider">
           <div class="prompt-note">
             <strong style="color: var(--text-dark); font-size: 13px;">ここで出た「ベスト1」が発表のネタになります</strong><br>
-            結果が出たら、自動化したい業務のトップ1〜3を発表してください。講師が集計してランキングを発表します。
+            結果が出たら、Claudeで取り組みたいことのトップ1〜3を発表してください。講師が集計してランキングを発表します。
           </div>
         </div>
       </div>
@@ -1239,8 +1246,8 @@
         </div>
 
         <div class="form-field">
-          <label for="field-result">Claudeが出した「自動化ベスト3」の内容<span>（必須）</span></label>
-          <textarea id="field-result" placeholder="STEP 3の結果をここにコピー＆ペーストしてください。&#10;&#10;例：&#10;1位：SNSコメント返信の下書き（毎日・30分）&#10;2位：請求書の作成（月2回・1時間）&#10;3位：メルマガ配信文の下書き（週1・40分）"></textarea>
+          <label for="field-result">Claudeが出した「取り組みたいことベスト3」の内容<span>（必須）</span></label>
+          <textarea id="field-result" placeholder="STEP 3の結果をここにコピー＆ペーストしてください。&#10;&#10;例：&#10;1位：会員サイトのログイン機能を作る&#10;2位：SNSコメントへの返信を半自動化する&#10;3位：セミナーのLPを一から作る"></textarea>
           <span class="form-hint">Claudeの回答画面から「ベスト3」の部分をそのままコピーして貼り付けるだけでOKです。</span>
         </div>
 
