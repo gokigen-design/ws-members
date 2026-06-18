@@ -1167,14 +1167,78 @@ ClaudeというAIと一緒に、仕事をもっと楽にしたいと思ってい
       </div>
     </div>
 
-    <!-- ─── connector ─── -->
-    <div class="step-connector">
-      <div class="step-connector-line"></div>
-      <span class="step-connector-text">仕分け結果を確認したら次へ</span>
-      <div class="step-connector-line" style="background: linear-gradient(90deg, transparent, var(--blue-pale));"></div>
+  </div>
+</section>
+
+<!-- ─── Submit Form（STEP2後に送る）────────────────────────── -->
+<section class="submit-section">
+  <div class="submit-wrapper">
+
+    <div class="submit-icon-wrap">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+        <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
 
-    <!-- ─── STEP 3 ─── -->
+    <h2>STEP2の仕分け結果を<br>そのまま送ってください</h2>
+    <p class="submit-sub">
+      赤・黄・緑の全文をコピーして貼り付けてください。<br>
+      みんなの内容を集計して、最後にランキングを発表します。
+    </p>
+
+    <!-- フォーム表示中 -->
+    <div id="submit-form-area">
+      <div class="submit-form">
+        <div class="form-field">
+          <label for="field-name">お名前<span>（任意）</span></label>
+          <input type="text" id="field-name" placeholder="例：あや" autocomplete="off">
+        </div>
+
+        <div class="form-field">
+          <label for="field-result">Claudeの仕分け結果（STEP2の全文）<span>（必須）</span></label>
+          <textarea id="field-result" placeholder="Claudeが仕分けしてくれた結果をそのままコピーして貼り付けてください。&#10;&#10;🟢 Claudeに丸ごと任せられる&#10;・〇〇&#10;・〇〇&#10;&#10;🟡 Claudeがいれば格段に楽になる&#10;・〇〇&#10;・〇〇&#10;&#10;🔴 人間がやるべき&#10;・〇〇&#10;・〇〇"></textarea>
+          <span class="form-hint">STEP2のClaudeの返答画面をそのままコピーして貼り付けるだけでOKです。</span>
+        </div>
+
+        <button class="submit-btn" id="submit-btn" onclick="submitResult()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          仕分け結果を送る
+        </button>
+      </div>
+    </div>
+
+    <!-- 送信完了後 -->
+    <div class="submit-success" id="submit-success">
+      <div class="success-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <path d="M5 13l4 4L19 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>送信完了！</h3>
+      <p>
+        ありがとうございます。<br>
+        送れたら、下のSTEP3に進んでください。<br>
+        Claudeにあなたのベスト3を出してもらいましょう。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── STEP3（送信後に進む）────────────────────────────────── -->
+<section class="prompt-section">
+  <div class="prompt-wrapper">
+
+    <span class="section-label">Next Step</span>
+    <h2 class="section-title" style="margin-bottom: 12px;">送れたらSTEP3へ</h2>
+    <p style="font-size: 14px; color: var(--text-light); margin-bottom: 36px; line-height: 1.85;">
+      仕分け結果を送ったら、同じClaudeの会話でこのプロンプトを送ってください。<br>
+      あなたが最初に取り組むべきベスト3が出てきます。
+    </p>
+
     <div class="step-block">
       <div class="step-header">
         <span class="step-badge">STEP 3</span>
@@ -1197,7 +1261,7 @@ ClaudeというAIと一緒に、仕事をもっと楽にしたいと思ってい
           </button>
         </div>
         <div class="prompt-body">
-          <p class="prompt-lead">STEP 2 の結果をもとに、同じ会話でそのまま送ります。</p>
+          <p class="prompt-lead">STEP 2 の会話の続きで、そのままこのプロンプトを送ります。</p>
           <div class="prompt-text" id="prompt-3">仕分けの結果を見て、質問です。
 
 🟢と🟡の中から、以下の基準で「最初にClaudeで取り組むべきもの」をベスト3で教えてください。
@@ -1210,69 +1274,11 @@ ClaudeというAIと一緒に、仕事をもっと楽にしたいと思ってい
 それぞれ「なぜこれが最初か」の理由もつけてください。</div>
           <hr class="prompt-divider">
           <div class="prompt-note">
-            <strong style="color: var(--text-dark); font-size: 13px;">ここで出た「ベスト1」が発表のネタになります</strong><br>
-            結果が出たら、Claudeで取り組みたいことのトップ1〜3を発表してください。講師が集計してランキングを発表します。
+            <strong style="color: var(--text-dark); font-size: 13px;">このベスト3をシェアタイムで発表してください</strong><br>
+            結果が出たら、みんなの前で発表しましょう。講師が集計して、最後にランキングを発表します。
           </div>
         </div>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ─── Submit Form ───────────────────────────────────────── -->
-<section class="submit-section">
-  <div class="submit-wrapper">
-
-    <div class="submit-icon-wrap">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-        <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-
-    <h2>あなたのベスト1を<br>ランキングに登録しよう</h2>
-    <p class="submit-sub">
-      STEP 3で出た結果をそのままコピーして貼り付けてください。<br>
-      みんなの回答を集計して、このセッションのランキングを発表します！
-    </p>
-
-    <!-- フォーム表示中 -->
-    <div id="submit-form-area">
-      <div class="submit-form">
-        <div class="form-field">
-          <label for="field-name">お名前<span>（任意）</span></label>
-          <input type="text" id="field-name" placeholder="例：あや" autocomplete="off">
-        </div>
-
-        <div class="form-field">
-          <label for="field-result">Claudeが出した「取り組みたいことベスト3」の内容<span>（必須）</span></label>
-          <textarea id="field-result" placeholder="STEP 3の結果をここにコピー＆ペーストしてください。&#10;&#10;例：&#10;1位：会員サイトのログイン機能を作る&#10;2位：SNSコメントへの返信を半自動化する&#10;3位：セミナーのLPを一から作る"></textarea>
-          <span class="form-hint">Claudeの回答画面から「ベスト3」の部分をそのままコピーして貼り付けるだけでOKです。</span>
-        </div>
-
-        <button class="submit-btn" id="submit-btn" onclick="submitResult()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          ランキングに登録する
-        </button>
-      </div>
-    </div>
-
-    <!-- 送信完了後 -->
-    <div class="submit-success" id="submit-success">
-      <div class="success-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-          <path d="M5 13l4 4L19 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <h3>登録完了！</h3>
-      <p>
-        ありがとうございます。<br>
-        全員の回答が集まったら、ランキングを発表します。<br>
-        発表を楽しみにしていてください！
-      </p>
     </div>
 
   </div>
