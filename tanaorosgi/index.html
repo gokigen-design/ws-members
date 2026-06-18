@@ -1345,6 +1345,13 @@ ClaudeというAIと一緒に、仕事をもっと楽にしたいと思ってい
   <p>AI Workshop — 業務棚卸しセッション 2026</p>
 </footer>
 
+<!-- ─── GAS送信用フォーム（非表示）────────────────────────── -->
+<form id="gas-form" action="https://script.google.com/macros/s/AKfycbx8iMiwLMLyD27BSGaHPX7skNElpqHRE2H6xVkCQlOBNhaJIKvF_NbJog64IInsSPLa/exec" method="GET" target="gas-iframe" style="display:none">
+  <input type="hidden" name="name" id="gas-name">
+  <input type="hidden" name="result" id="gas-result">
+</form>
+<iframe name="gas-iframe" id="gas-iframe" style="display:none; width:0; height:0; border:none;" title="gas"></iframe>
+
 <!-- ─── Toast ─────────────────────────────────────────────── -->
 <div class="copy-toast" id="copy-toast">プロンプトをコピーしました</div>
 
@@ -1382,9 +1389,6 @@ ClaudeというAIと一緒に、仕事をもっと楽にしたいと思ってい
   }
 
   // ─── フォーム送信 ─────────────────────────────────────────
-  // GASデプロイ後にこのURLを書き換えてください
-  var GAS_URL = 'https://script.google.com/macros/s/AKfycbx8iMiwLMLyD27BSGaHPX7skNElpqHRE2H6xVkCQlOBNhaJIKvF_NbJog64IInsSPLa/exec';
-
   function submitResult() {
     var name   = document.getElementById('field-name').value.trim() || '匿名';
     var result = document.getElementById('field-result').value.trim();
@@ -1402,22 +1406,16 @@ ClaudeというAIと一緒に、仕事をもっと楽にしたいと思ってい
     btn.disabled = true;
     btn.textContent = '送信中...';
 
-    var url = GAS_URL
-      + '?name='   + encodeURIComponent(name)
-      + '&result=' + encodeURIComponent(result);
+    // 非表示フォーム＋iframeで送信（Googleリダイレクトに強い・CORS問題なし）
+    document.getElementById('gas-name').value   = name;
+    document.getElementById('gas-result').value = result;
+    document.getElementById('gas-form').submit();
 
-    function showSuccess() {
+    // 2秒後に完了表示
+    setTimeout(function() {
       document.getElementById('submit-form-area').style.display = 'none';
       document.getElementById('submit-success').style.display   = 'block';
-    }
-
-    // fetch no-cors（リダイレクトを正しく追うためimgタグより確実）
-    fetch(url, { mode: 'no-cors' })
-      .then(showSuccess)
-      .catch(showSuccess);
-
-    // 5秒後に強制完了（fetch が詰まった場合の保険）
-    setTimeout(showSuccess, 5000);
+    }, 2000);
   }
 </script>
 </body>
