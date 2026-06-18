@@ -712,6 +712,23 @@
       margin-left: 6px;
     }
 
+    /* ─── Step Reminder ───────────────────────────────────── */
+    .step-reminder {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #EFF6FF;
+      border: 1.5px solid #BFDBFE;
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--text-dark);
+      line-height: 1.75;
+    }
+
+    .step-reminder svg { flex-shrink: 0; margin-top: 2px; }
+
     .step-connector {
       display: flex;
       align-items: center;
@@ -1139,6 +1156,14 @@ ClaudeというAIと一緒に、仕事をもっと楽にしたいと思ってい
 ・</div>
         </div>
       </div>
+    </div>
+
+    <!-- ─── STEP1 後の一言リマインダー ─── -->
+    <div class="step-reminder">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" flex-shrink="0">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="#2563EB"/>
+      </svg>
+      <span>Claudeが<strong>「他にも当てはまることはありますか？」</strong>と聞いてきたら、答えてから次のSTEPへ進んでください</span>
     </div>
 
     <!-- ─── connector ─── -->
