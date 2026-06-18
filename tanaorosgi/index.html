@@ -1402,23 +1402,22 @@ ClaudeというAIと一緒に、仕事をもっと楽にしたいと思ってい
     btn.disabled = true;
     btn.textContent = '送信中...';
 
-    // GETパラメーター方式（GASのCORS制限を回避する最も確実な方法）
     var url = GAS_URL
       + '?name='   + encodeURIComponent(name)
       + '&result=' + encodeURIComponent(result);
 
-    // imgタグ経由で送信（no-corsより確実にリクエストが届く）
-    var img = new Image();
-    img.onload = img.onerror = function() {
+    function showSuccess() {
       document.getElementById('submit-form-area').style.display = 'none';
       document.getElementById('submit-success').style.display   = 'block';
-    };
-    // 2秒後に強制的に完了表示（タイムアウト対策）
-    setTimeout(function() {
-      document.getElementById('submit-form-area').style.display = 'none';
-      document.getElementById('submit-success').style.display   = 'block';
-    }, 2000);
-    img.src = url;
+    }
+
+    // fetch no-cors（リダイレクトを正しく追うためimgタグより確実）
+    fetch(url, { mode: 'no-cors' })
+      .then(showSuccess)
+      .catch(showSuccess);
+
+    // 5秒後に強制完了（fetch が詰まった場合の保険）
+    setTimeout(showSuccess, 5000);
   }
 </script>
 </body>
