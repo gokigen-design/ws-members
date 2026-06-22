@@ -191,28 +191,27 @@
     /* ─── Flow Steps ────────────────────────────────────────── */
     .flow {
       display: flex;
-      align-items: stretch;
-      justify-content: center;
+      flex-direction: column;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     .flow-step {
-      flex: 1;
-      min-width: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 22px;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 28px 20px 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      padding: 24px 28px;
+      text-align: left;
       box-shadow: 0 8px 24px rgba(37,99,235,0.05);
     }
 
     .flow-node {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 16px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--blue-deep), var(--teal));
       color: #fff;
@@ -233,44 +232,38 @@
       letter-spacing: 1.5px;
       color: var(--blue-light);
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .flow-step h3 {
       font-family: 'Noto Serif JP', serif;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 500;
       color: var(--text-dark);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       line-height: 1.5;
     }
 
     .flow-step p {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-light);
-      line-height: 1.85;
+      line-height: 1.8;
     }
 
     .flow-arrow {
-      flex-shrink: 0;
-      width: 34px;
+      height: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--blue-light);
     }
 
-    @media (max-width: 760px) {
-      .flow { flex-direction: column; align-items: stretch; }
-      .flow-step {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        gap: 16px;
-        padding: 22px 20px;
-      }
-      .flow-node { width: 44px; height: 44px; font-size: 18px; margin-bottom: 0; }
-      .flow-arrow { width: 100%; height: 30px; transform: rotate(90deg); }
+    .flow-arrow svg { transform: rotate(90deg); }
+
+    @media (max-width: 640px) {
+      .flow-step { gap: 16px; padding: 20px 18px; }
+      .flow-node { width: 46px; height: 46px; font-size: 18px; }
+      .flow-step h3 { font-size: 16px; }
     }
 
     /* ─── Needs Ranking ─────────────────────────────────────── */
@@ -676,21 +669,19 @@
 </section>
 
 <!-- ─── Flow ──────────────────────────────────────────────── -->
-<section class="section" style="max-width:1080px;">
+<section class="section">
   <span class="section-label">Session Flow</span>
   <h2 class="section-title">当日の流れ ダイジェスト</h2>
   <p class="section-lead">アイスブレイクから、3ステップの棚卸しワーク、そしてシェアタイムまで。</p>
   <div class="flow">
 
     <div class="flow-step">
-      <div class="flow-node">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M12 3l1.8 4.7L18.5 9l-3.7 3 1.2 4.8L12 14.3 8 16.8 9.2 12 5.5 9l4.7-1.3L12 3z" fill="white"/>
-        </svg>
+      <div class="flow-node">01</div>
+      <div class="flow-body">
+        <span class="flow-tag">Warm up</span>
+        <h3>アイスブレイク・最近のAI活用シェア</h3>
+        <p>「最近どう？」から始まる近況トーク。ここで便利ワザがたくさん飛び出しました。</p>
       </div>
-      <span class="flow-tag">Warm up</span>
-      <h3>アイスブレイク・<br>最近のAI活用シェア</h3>
-      <p>「最近どう？」から始まる近況トーク。ここで便利ワザがたくさん飛び出しました。</p>
     </div>
 
     <div class="flow-arrow">
@@ -700,10 +691,12 @@
     </div>
 
     <div class="flow-step">
-      <div class="flow-node">1</div>
-      <span class="flow-tag">Step 01 — 10min</span>
-      <h3>仕事を全部、<br>書き出す</h3>
-      <p>毎週のタスク・やりたいこと・手が止まっていることを、音声でClaudeに吹き込んで書き出し。</p>
+      <div class="flow-node">02</div>
+      <div class="flow-body">
+        <span class="flow-tag">Work — 10min</span>
+        <h3>仕事を全部、書き出す</h3>
+        <p>毎週のタスク・やりたいこと・手が止まっていることを、音声でClaudeに吹き込んで書き出し。</p>
+      </div>
     </div>
 
     <div class="flow-arrow">
@@ -713,10 +706,12 @@
     </div>
 
     <div class="flow-step">
-      <div class="flow-node">2</div>
-      <span class="flow-tag">Step 02 — 15min</span>
-      <h3>緑・黄・赤に<br>仕分け</h3>
-      <p>Claudeに「丸ごと任せられる／一緒にやる／自分でやる」の3色に仕分けしてもらう。</p>
+      <div class="flow-node">03</div>
+      <div class="flow-body">
+        <span class="flow-tag">Work — 15min</span>
+        <h3>緑・黄・赤に仕分け</h3>
+        <p>Claudeに「丸ごと任せられる／一緒にやる／自分でやる」の3色に仕分けしてもらう。</p>
+      </div>
     </div>
 
     <div class="flow-arrow">
@@ -726,10 +721,12 @@
     </div>
 
     <div class="flow-step">
-      <div class="flow-node">3</div>
-      <span class="flow-tag">Step 03 — 5min</span>
-      <h3>やるべき<br>ベスト3を決める</h3>
-      <p>緑・黄の中から「最初に取り組むベスト3」を抽出。仕分け結果は講師にも共有しました。</p>
+      <div class="flow-node">04</div>
+      <div class="flow-body">
+        <span class="flow-tag">Work — 5min</span>
+        <h3>やるべきベスト3を決める</h3>
+        <p>緑・黄の中から「最初に取り組むベスト3」を抽出。仕分け結果は講師にも共有しました。</p>
+      </div>
     </div>
 
   </div>
