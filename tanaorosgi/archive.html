@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>業務棚卸しセッション アーカイブ｜AIワークショップ 1〜3期生</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep:   #2563EB;
+      --blue-mid:    #3B82F6;
+      --blue-light:  #60A5FA;
+      --blue-pale:   #BFDBFE;
+      --blue-bg:     #EFF6FF;
+      --blue-bg2:    #F0F9FF;
+      --teal:        #0EA5E9;
+      --text:        #545454;
+      --text-dark:   #1e3a5f;
+      --text-light:  #7A8BA0;
+      --white:       #FFFFFF;
+      --border:      #DBEAFE;
+      --green:       #34C77B;
+      --yellow:      #F2B544;
+      --red:         #E96A6A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--text);
+      background: #F8FBFF;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Hero ─────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(160deg, #EFF6FF 0%, #F0F9FF 55%, #FFFFFF 100%);
+      text-align: center;
+      padding: 72px 24px 64px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--blue-mid);
+      border: 1px solid var(--blue-pale);
+      border-radius: 100px;
+      padding: 7px 22px;
+      margin-bottom: 24px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: clamp(26px, 5vw, 40px);
+      color: var(--text-dark);
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.9;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-meta span {
+      font-size: 13px;
+      color: var(--blue-mid);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Sections ──────────────────────────────────────────── */
+    .section {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--blue-mid);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: clamp(21px, 3.5vw, 28px);
+      color: var(--text-dark);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .section-lead {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.9;
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 40px;
+    }
+
+    /* ─── Overview ──────────────────────────────────────────── */
+    .overview-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 40px 36px;
+      box-shadow: 0 12px 40px rgba(37,99,235,0.06);
+    }
+
+    .overview-box p {
+      font-size: 15px;
+      line-height: 2;
+      color: var(--text);
+    }
+
+    .overview-box p + p { margin-top: 16px; }
+
+    .overview-box strong {
+      color: var(--blue-deep);
+      font-weight: 500;
+    }
+
+    /* ─── Video ─────────────────────────────────────────────── */
+    .video-section {
+      background: linear-gradient(145deg, #EFF6FF 0%, #F0F9FF 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .video-frame {
+      max-width: 820px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(37,99,235,0.15);
+      background: #0b1f3a;
+    }
+
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 24px;
+    }
+
+    .video-placeholder svg { opacity: 0.9; }
+
+    .video-placeholder p { font-size: 14px; line-height: 1.8; }
+
+    /* ─── Flow Steps ────────────────────────────────────────── */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .flow-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px 24px;
+      position: relative;
+    }
+
+    .flow-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: var(--blue-light);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .flow-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .flow-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.85;
+    }
+
+    /* ─── Needs Ranking ─────────────────────────────────────── */
+    .needs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .need-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 26px;
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .need-rank {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--blue-mid);
+      flex-shrink: 0;
+      width: 48px;
+      text-align: center;
+    }
+
+    .need-item:nth-child(1) .need-rank { color: var(--blue-deep); }
+
+    .need-body h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .need-body p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.85;
+    }
+
+    .need-voices {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--blue-mid);
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── Voices (participant cards) ────────────────────────── */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .voice-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 24px 22px;
+    }
+
+    .voice-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .voice-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .voice-list li {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .voice-no {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--blue-bg);
+      color: var(--blue-mid);
+      font-size: 11px;
+      font-family: 'Cormorant Garamond', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    /* ─── Tips ──────────────────────────────────────────────── */
+    .tips-section {
+      background: linear-gradient(145deg, #F0F9FF 0%, #EFF6FF 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .tip-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 24px 22px;
+    }
+
+    .tip-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue-deep), var(--teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .tip-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .tip-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.85;
+    }
+
+    /* ─── Possibilities ─────────────────────────────────────── */
+    .poss-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .poss-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--blue-mid);
+      border-radius: 0 16px 16px 0;
+      padding: 22px 26px;
+    }
+
+    .poss-item h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .poss-item p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.85;
+    }
+
+    /* ─── CTA back ──────────────────────────────────────────── */
+    .cta-section {
+      text-align: center;
+      padding: 64px 24px 72px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: clamp(20px, 3.5vw, 26px);
+      color: var(--text-dark);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, var(--blue-deep), var(--teal));
+      border-radius: 100px;
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(37,99,235,0.32);
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    footer {
+      background: var(--text-dark);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ─── Responsive ────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero { padding: 52px 20px 48px; }
+      .section { padding: 48px 18px; }
+      .overview-box { padding: 28px 22px; }
+      .flow-grid,
+      .voice-grid,
+      .tips-grid { grid-template-columns: 1fr; }
+      .need-item { gap: 14px; padding: 20px 18px; }
+      .need-rank { font-size: 28px; width: 34px; }
+      .hero-meta { gap: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Hero ─────────────────────────────────────────────── -->
+<section class="hero">
+  <span class="hero-badge">Session Archive</span>
+  <h1>業務棚卸しセッション<br>アーカイブ</h1>
+  <p>「この業務、実はAIに任せられるかも？」<br>みんなで仕事を棚卸しした、あの夜の記録。</p>
+  <div class="hero-meta">
+    <span>AIワークショップ 1〜3期生</span>
+    <span>参加 18名</span>
+  </div>
+</section>
+
+<!-- ─── Overview ──────────────────────────────────────────── -->
+<section class="section">
+  <span class="section-label">What was this?</span>
+  <h2 class="section-title">このワークって、何だった？</h2>
+  <div class="overview-box">
+    <p>AIを導入したい。でも、<strong>一体どこからAIに任せられるのか分からない</strong>——これはみんな共通の悩みでした。</p>
+    <p>そこで今回は、ALC0期で野田さんが最初にやってくれて「衝撃だった」あの棚卸しワークを、1〜3期生みんなで同時にやってみる回に。自分の仕事をまるごと書き出して、Claudeに <strong>緑（丸ごと任せられる）・黄（一緒にやると楽になる）・赤（自分でやるべき）</strong> の3つに仕分けしてもらいました。</p>
+    <p>大事なのは「正解を出すこと」より、<strong>"あ、こんなことにも使えるんだ" という気づきをみんなでシェアすること</strong>。実際、他の人の使い方が自分のヒントになる場面がたくさんありました。</p>
+  </div>
+</section>
+
+<!-- ─── Video ─────────────────────────────────────────────── -->
+<section class="video-section">
+  <div class="section" style="padding-top:56px; padding-bottom:56px;">
+    <span class="section-label">Archive Movie</span>
+    <h2 class="section-title">当日のアーカイブ動画</h2>
+    <p class="section-lead">当日参加できなかった方も、もう一度見返したい方も。<br>みんなのシェアタイムがまるごと残っています。</p>
+    <div class="video-frame">
+      <!-- 動画URLが決まったら、この video-placeholder を iframe に差し替えます -->
+      <div class="video-placeholder">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
+          <path d="M10 8.5l5 3.5-5 3.5V8.5z" fill="rgba(255,255,255,0.85)"/>
+        </svg>
+        <p>動画リンクが決まったら、ここに表示されます。<br>（YouTube / Vimeo どちらでもOK）</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Flow ──────────────────────────────────────────────── -->
+<section class="section">
+  <span class="section-label">Session Flow</span>
+  <h2 class="section-title">当日の流れ ダイジェスト</h2>
+  <p class="section-lead">アイスブレイクから、3ステップの棚卸しワーク、そしてシェアタイムまで。</p>
+  <div class="flow-grid">
+    <div class="flow-card">
+      <span class="flow-num">Warm up</span>
+      <h3>アイスブレイク・最近のAI活用シェア</h3>
+      <p>「最近どう？」から始まる近況トーク。ここで便利ワザがたくさん飛び出しました（下にまとめています）。</p>
+    </div>
+    <div class="flow-card">
+      <span class="flow-num">Step 01 — 10min</span>
+      <h3>仕事を全部、書き出す</h3>
+      <p>毎週のタスク・やりたいけどできていないこと・手が止まっていることを、音声でClaudeに吹き込んで書き出し。</p>
+    </div>
+    <div class="flow-card">
+      <span class="flow-num">Step 02 — 15min</span>
+      <h3>緑・黄・赤に仕分け</h3>
+      <p>Claudeに「丸ごと任せられる／一緒にやる／自分でやる」の3色に仕分けしてもらう。理由も一言ずつ。</p>
+    </div>
+    <div class="flow-card">
+      <span class="flow-num">Step 03 — 5min</span>
+      <h3>やるべきベスト3を決める</h3>
+      <p>緑・黄の中から「最初に取り組むベスト3」を抽出。仕分け結果は講師にも共有してもらいました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Needs Ranking ─────────────────────────────────────── -->
+<section class="section" style="padding-top:0;">
+  <span class="section-label">Everyone's Needs</span>
+  <h2 class="section-title">みんなで多かったニーズ TOP5</h2>
+  <p class="section-lead">全員のベスト3を見比べると、驚くほど共通したお悩みが浮かび上がってきました。</p>
+  <div class="needs-list">
+    <div class="need-item">
+      <div class="need-rank">1</div>
+      <div class="need-body">
+        <h3>SNS発信の仕組み化・ネタの横展開</h3>
+        <p>「ネタを思いついた瞬間に保存」→「1つの投稿からリール・ストーリーズ・X・スレッズ・LINEへ横展開」。ほぼ全員が、ここに手を止めていました。</p>
+        <p class="need-voices">さーやん／なっちゃん／よしみさん／たまよさん／かよさん／かまちゃん／はぬちゃん</p>
+      </div>
+    </div>
+    <div class="need-item">
+      <div class="need-rank">2</div>
+      <div class="need-body">
+        <h3>情報・データの一元管理</h3>
+        <p>「あれ、どこ行った？」が時間泥棒。素材・フォルダ・日々の記録が散らかっていて、まとめたい人が多数。Obsidian × Claude の連携が刺さっていました。</p>
+        <p class="need-voices">ゆみちゃん／あやちゃん／まみさん／よしみさん／かよさん</p>
+      </div>
+    </div>
+    <div class="need-item">
+      <div class="need-rank">3</div>
+      <div class="need-body">
+        <h3>顧客・受講生のカルテ／記録管理</h3>
+        <p>セッション記録・ビフォーアフター・お悩み履歴を、一覧で見られるカルテに。声かけや提案の質が変わる、という気づきが共通していました。</p>
+        <p class="need-voices">なっちゃん／よしみさん／かよさん／まみさん</p>
+      </div>
+    </div>
+    <div class="need-item">
+      <div class="need-rank">4</div>
+      <div class="need-body">
+        <h3>事務作業の自動化</h3>
+        <p>納品書・見積もり・入金確認・お問い合わせ返信。「情報を渡せば即作成」できる定型業務は、もう手放していいゾーン。</p>
+        <p class="need-voices">まみさん／さーやん／たまよさん</p>
+      </div>
+    </div>
+    <div class="need-item">
+      <div class="need-rank">5</div>
+      <div class="need-body">
+        <h3>ナレッジ・実績のコンテンツ化</h3>
+        <p>自分の知見・ワンポイントアドバイス・実績事例を、サイトやページにまとめる。「それ、有料コンテンツになるよ」という声も。</p>
+        <p class="need-voices">なつみちゃん／さーやん／かよさん／ゆみちゃん</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Voices ────────────────────────────────────────────── -->
+<section class="section" style="padding-top:0;">
+  <span class="section-label">Real Voices</span>
+  <h2 class="section-title">みんなのリアルなベスト3</h2>
+  <p class="section-lead">「こんな使い方があるんだ」がいっぱい。あなたのヒントを探してみてください。</p>
+  <div class="voice-grid">
+
+    <div class="voice-card">
+      <div class="voice-name">ゆみちゃん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>デザインシステム作り（毎週のLP制作を効率化）</li>
+        <li><span class="voice-no">2</span>タスク管理の仕組み（Obsidianの上に構築）</li>
+        <li><span class="voice-no">3</span>事例・実績ページの制作</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">あやちゃん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>料金表の叩き台づくり（価格の見直し）</li>
+        <li><span class="voice-no">2</span>探し物ゼロの仕組み（素材・フォルダ整理）</li>
+        <li><span class="voice-no">3</span>コンセプトの言語化（軸がブレない土台）</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">さーやん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>SNS投稿の簡略化・活動報告の発信</li>
+        <li><span class="voice-no">2</span>見積もりの叩き（すぐできる着手しやすい一手）</li>
+        <li><span class="voice-no">3</span>オンライン講座の内容検討と資料作成</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">かまちゃん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>グルコン内容→投稿ネタを自動生成</li>
+        <li><span class="voice-no">2</span>スレッズ・LINE配信文の作成フロー</li>
+        <li><span class="voice-no">3</span>返信テンプレ（講師志望の方向けに展開）</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">まみさん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>納品書の自動作成・入金確認の効率化</li>
+        <li><span class="voice-no">2</span>行動記録の仕組み（話すだけで成果を蓄積）</li>
+        <li><span class="voice-no">3</span>リール動画のリサーチ（伸びジャンル分析）</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">なっちゃん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>SNS投稿の仕組み化（リール・フィードの負担減）</li>
+        <li><span class="voice-no">2</span>受講生のビフォーアフター個別カルテ</li>
+        <li><span class="voice-no">3</span>ビジネスの健康診断（数値記録管理）</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">よしみさん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>受講生データの一元管理（発信の源泉）</li>
+        <li><span class="voice-no">2</span>リールのネタ探し〜台本作りの仕組み</li>
+        <li><span class="voice-no">3</span>お客様のお悩み管理（ネタ出しに活用）</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">たまよさん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>発信工場の第一歩（ネタ保存→投稿→横展開）</li>
+        <li><span class="voice-no">2</span>お問い合わせ・申込のテンプレ＆自動返信</li>
+        <li><span class="voice-no">3</span>LINEプレゼントとその導線づくり</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">かよさん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>セッション記録のデータ化（手書き→カルテ化）</li>
+        <li><span class="voice-no">2</span>SNSの仕組み化（ネタ・アイデア出し）</li>
+        <li><span class="voice-no">3</span>LINE・メルマガ配信＋サービスのまとめサイト</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">なつみちゃん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>提案資料のひな形づくり（クライアント別に展開）</li>
+        <li><span class="voice-no">2</span>編集の進捗管理の仕組み</li>
+        <li><span class="voice-no">3</span>編集ナレッジのサイト化（教科書として共有）</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">はぬちゃん</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">1</span>パーティー当日の共有サイト（思い出＋アクティビティ）</li>
+        <li><span class="voice-no">2</span>提案書のサイト化（実映像・イメージ入り）</li>
+        <li><span class="voice-no">3</span>発信・リールの型づくり</li>
+      </ul>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-name">たまよさん（補足）</div>
+      <ul class="voice-list">
+        <li><span class="voice-no">+</span>動画の切り抜き・タイムスタンプの仕組み</li>
+        <li><span class="voice-no">+</span>「この切り口」で探せる検索性のあるネタ庫</li>
+        <li><span class="voice-no">+</span>お悩み別に過去ネタを引き出せる仕組み</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── Tips ──────────────────────────────────────────────── -->
+<section class="tips-section">
+  <div class="section">
+    <span class="section-label">Useful Tips</span>
+    <h2 class="section-title">当日シェアされた便利ワザ</h2>
+    <p class="section-lead">アイスブレイクと質問タイムで飛び出した、Claude Codeの小ワザまとめ。</p>
+    <div class="tips-grid">
+
+      <div class="tip-card">
+        <div class="tip-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12l4 4L19 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>自動モードで承認をスキップ</h3>
+        <p>毎回「これOK？」と聞かれて大変なら自動モードに。使い慣れて「これは大丈夫／確認すべき」の感覚がつけば自動でOK。本当にやばい時はClaudeが聞いてくれます。</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="4" width="8" height="16" rx="1.5" stroke="white" stroke-width="1.6"/>
+            <rect x="13" y="4" width="8" height="16" rx="1.5" stroke="white" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <h3>ドラッグ&ドロップで画面分割</h3>
+        <p>ターミナルのタブをドラッグ&ドロップするだけで画面を2〜4分割。複数のプロジェクトを同時に見ながら、承認をポンポン押せて作業が一気に早くなります。</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6l2-6z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>よく使うプロジェクトをピン留め</h3>
+        <p>名前を変えるところからピン留めすると、上に固定表示。英語名の中から毎回探さなくて済みます。分かりやすい名前をつけておくのがコツ。</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M4 5a2 2 0 012-2h8l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M14 3v6h6" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Obsidian × Claude × LINE 連携</h3>
+        <p>LINEに話しかけたメモが自動でObsidianに蓄積。Claudeがそこを読みに行くので、日々の記録も過去のセミナー文字起こしも、まとめて資産になります。</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.6"/>
+            <path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>モデルの使い分け</h3>
+        <p>基本はOpus、怪しくなったらSonnet。トークン残量のアイコンを押すと残りが見られるので、それを見ながら切り替え。Haikuはほぼ使わなくてOK。</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="white" stroke-width="1.6"/>
+            <circle cx="9" cy="11" r="2" stroke="white" stroke-width="1.6"/>
+            <path d="M5 19l5-4 3 2 3-3 3 3" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>手書きメモ → データ化</h3>
+        <p>過去の手書きメモも、写真やスクショを撮ってClaudeに渡せば文字起こし＆データ化。眠っていた12年分の記録も、活用できる資産に変わります。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Possibilities ─────────────────────────────────────── -->
+<section class="section">
+  <span class="section-label">From Here</span>
+  <h2 class="section-title">ここから、こんなことができる</h2>
+  <p class="section-lead">みんなの声から見えてきた「次の一手」。気になるものから、Claudeに相談してみてください。</p>
+  <div class="poss-list">
+    <div class="poss-item">
+      <h3>発信工場をつくる</h3>
+      <p>ネタを思いついた瞬間に保存 → 1つのネタからリール・ストーリーズ・X・スレッズ・LINEへ自動で横展開。「発信が重い」をいちばん軽くする仕組みです。</p>
+    </div>
+    <div class="poss-item">
+      <h3>話すだけで貯まる記録の仕組み</h3>
+      <p>「今日これやった」と話しかけるだけで、日々の行動・成果・気持ちがObsidianに蓄積。夜に思い出せなくても大丈夫。失敗も含めて、あなたの引き出しになります。</p>
+    </div>
+    <div class="poss-item">
+      <h3>顧客の個別カルテを自動で</h3>
+      <p>ビフォーアフター・お悩み・セッション記録が、一覧でパッと見えるカルテに。手打ちで諦めていた自動反映も、相談すれば道が見つかります。</p>
+    </div>
+    <div class="poss-item">
+      <h3>ビジネスの健康診断</h3>
+      <p>LINEの増減などの数字が毎日自動でスプレッドシートに記録。経営判断を「感覚」から「数字」へ。意思決定がぐっと楽になります。</p>
+    </div>
+    <div class="poss-item">
+      <h3>自分のノウハウをコンテンツに</h3>
+      <p>毎回説明しているワンポイントアドバイスや編集ノウハウを、サイト化して「見たら分かる教科書」に。そのまま有料コンテンツにもなり得る資産です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA back ──────────────────────────────────────────── -->
+<section class="cta-section">
+  <h2>もう一度、棚卸しをやってみる</h2>
+  <p>当日使ったプロンプトは、いつでもこちらから。<br>新しいタスクが増えたら、また棚卸ししてみてください。</p>
+  <a href="./" class="cta-btn">
+    棚卸しセッションのページへ
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</section>
+
+<!-- ─── Footer ────────────────────────────────────────────── -->
+<footer>
+  <p>AI Workshop — 業務棚卸しセッション Archive 2026</p>
+</footer>
+
+</body>
+</html>
