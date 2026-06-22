@@ -413,6 +413,108 @@
       line-height: 1.85;
     }
 
+    /* ─── Q&A ───────────────────────────────────────────────── */
+    .qa-section {
+      background: linear-gradient(145deg, #EFF6FF 0%, #F0F9FF 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .qa-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px 28px;
+      box-shadow: 0 8px 28px rgba(37,99,235,0.05);
+    }
+
+    .qa-q {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .qa-q .mark {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--blue-deep), var(--teal));
+      color: #fff;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qa-q h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.55;
+      padding-top: 2px;
+    }
+
+    .qa-a {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .qa-a .mark {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: var(--blue-bg);
+      color: var(--blue-mid);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qa-a p {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.9;
+      padding-top: 2px;
+    }
+
+    .qa-a p strong {
+      color: var(--blue-deep);
+      font-weight: 500;
+    }
+
+    .qa-tag {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--blue-mid);
+      background: var(--blue-bg);
+      border-radius: 100px;
+      padding: 3px 12px;
+      margin-top: 12px;
+      margin-left: 40px;
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 640px) {
+      .qa-card { padding: 22px 18px; }
+      .qa-tag { margin-left: 0; }
+    }
+
     /* ─── CTA back ──────────────────────────────────────────── */
     .cta-section {
       text-align: center;
@@ -523,14 +625,7 @@
     <h2 class="section-title">当日のアーカイブ動画</h2>
     <p class="section-lead">当日参加できなかった方も、もう一度見返したい方も。<br>みんなのシェアタイムがまるごと残っています。</p>
     <div class="video-frame">
-      <!-- 動画URLが決まったら、この video-placeholder を iframe に差し替えます -->
-      <div class="video-placeholder">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
-          <path d="M10 8.5l5 3.5-5 3.5V8.5z" fill="rgba(255,255,255,0.85)"/>
-        </svg>
-        <p>動画リンクが決まったら、ここに表示されます。<br>（YouTube / Vimeo どちらでもOK）</p>
-      </div>
+      <iframe src="https://www.youtube.com/embed/uqc2i1uCWlI" title="業務棚卸しセッション アーカイブ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -833,6 +928,78 @@
     <div class="poss-item">
       <h3>自分のノウハウをコンテンツに</h3>
       <p>毎回説明しているワンポイントアドバイスや編集ノウハウを、サイト化して「見たら分かる教科書」に。そのまま有料コンテンツにもなり得る資産です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Q&A ───────────────────────────────────────────────── -->
+<section class="qa-section">
+  <div class="section">
+    <span class="section-label">After Talk Q&amp;A</span>
+    <h2 class="section-title">動画のあとの質問タイムから</h2>
+    <p class="section-lead">動画を止めたあと、残ってくれた方の質問から。<br>みんなに役立つエッセンスだけをまとめました。</p>
+    <div class="qa-list">
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="mark">Q</span>
+          <h3>デザイン性のある提案資料、どう作るのがスマート？</h3>
+        </div>
+        <div class="qa-a">
+          <span class="mark">A</span>
+          <p>Claude Codeは<strong>写真入り・デザイン性の高い資料は苦手</strong>です（コードで描いた線や模様しか出ないため）。一方で、頭の整理や壁打ちは最強。<br>なので役割分担がおすすめ。<strong>中身をClaudeで整理 → 写真や凝ったビジュアルはChatGPT／Codex（画像生成）やCanvaで仕上げる</strong>。よくあるビジネス資料ならClaudeでも十分ですが、写真多め・デザイン重視ならそちらの方が満足度が高いです。</p>
+        </div>
+        <span class="qa-tag">使い分けがコツ</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="mark">Q</span>
+          <h3>Obsidianとフォルダ、どう使い分ける？</h3>
+        </div>
+        <div class="qa-a">
+          <span class="mark">A</span>
+          <p>Obsidianは<strong>テキスト（MDファイル）専用の保管庫＝外付けの脳みそ</strong>。とにかく軽くて、Claudeが自動で読みに行ってくれます。プロフィール・発信の軸・記録などの「言葉」はここへ。<br>一方、<strong>写真・動画・画像（ビフォーアフター等）は通常のフォルダ</strong>に。作りたいもの（制作物）もフォルダ管理。役割が違うので、両方を組み合わせて使います。</p>
+        </div>
+        <span class="qa-tag">情報の一元管理</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="mark">Q</span>
+          <h3>モデリング先・リサーチはどう探す？</h3>
+        </div>
+        <div class="qa-a">
+          <span class="mark">A</span>
+          <p>ClaudeはInstagramの中までは検索できません。なので少し地道に。<strong>目標に近い人のフォロワーや、コメント欄を辿る</strong>のが効きます。「素敵です、私も頑張ります」とコメントしている人は、同じことをやりたい人＝あなたの近くにいる人。<br>見つけた人は<strong>Claudeに「リスト化して」「スプレッドシートにまとめて」「リンク付きで」</strong>と頼めば一瞬。世界観・発信スタイル別にタブを付けたページにすると、後から見返しやすくなります。</p>
+        </div>
+        <span class="qa-tag">リサーチ術</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="mark">Q</span>
+          <h3>Pinterestなどの画像、提案資料に使っていい？</h3>
+        </div>
+        <div class="qa-a">
+          <span class="mark">A</span>
+          <p>「<strong>見せる提案資料の参考</strong>」として使う分は問題なし。「白×緑×ゴールドの爽やか系」みたいなイメージ共有にはとても便利です。<br>ただし<strong>自分の発信の背景に使う・配布する（LINEプレゼント等）のはNG</strong>。あくまで“見せて伝える”までに留めるのが安全です。なお、動きのあるサイトをモデリングとして渡すときは、URLだけだと伝わらないのでスクショ＋リンクで。</p>
+        </div>
+        <span class="qa-tag">素材の扱い方</span>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q">
+          <span class="mark">Q</span>
+          <h3>Claudeにうまく自走してもらうコツは？</h3>
+        </div>
+        <div class="qa-a">
+          <span class="mark">A</span>
+          <p>事務的なことも、<strong>聞けばだいたいできます</strong>。だからまずはClaudeに直接聞くのが基本。<br>そしていちばん大事なのは<strong>「自分が何をやりたいか」を自分で明確にすること</strong>。便利な道具を入れても、やりたいことが曖昧だと進みません。「これこれこう思うけど、どう思う？」と、自分の考えを持って相談すると、ぐっと前に進みます。今回の棚卸しは、まさにその"やりたいこと"を見つける時間でした。</p>
+        </div>
+        <span class="qa-tag">いちばん大事なこと</span>
+      </div>
+
     </div>
   </div>
 </section>
