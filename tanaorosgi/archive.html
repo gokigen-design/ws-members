@@ -41,8 +41,23 @@
     .hero {
       background: linear-gradient(160deg, #EFF6FF 0%, #F0F9FF 55%, #FFFFFF 100%);
       text-align: center;
-      padding: 72px 24px 64px;
+      padding: 40px 24px 44px;
       border-bottom: 1px solid var(--border);
+    }
+
+    .hero-img-wrap {
+      max-width: 640px;
+      margin: 0 auto 26px;
+      line-height: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 36px rgba(37,99,235,0.12);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .hero-badge {
@@ -55,25 +70,8 @@
       border: 1px solid var(--blue-pale);
       border-radius: 100px;
       padding: 7px 22px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       background: rgba(255,255,255,0.7);
-    }
-
-    .hero h1 {
-      font-family: 'Noto Serif JP', serif;
-      font-weight: 500;
-      font-size: clamp(26px, 5vw, 40px);
-      color: var(--text-dark);
-      line-height: 1.5;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      font-size: 15px;
-      color: var(--text-light);
-      line-height: 1.9;
-      max-width: 560px;
-      margin: 0 auto;
     }
 
     .hero-meta {
@@ -81,7 +79,6 @@
       gap: 24px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 28px;
     }
 
     .hero-meta span {
@@ -598,9 +595,13 @@
 
 <!-- ─── Hero ─────────────────────────────────────────────── -->
 <section class="hero">
+  <div class="hero-img-wrap">
+    <picture>
+      <source media="(max-width: 640px)" srcset="image/sp_fv.png">
+      <img src="image/pc_fv1.png" alt="AI業務棚卸しワーク会 — その業務、実はAIに任せられるかも!?">
+    </picture>
+  </div>
   <span class="hero-badge">Session Archive</span>
-  <h1>業務棚卸しセッション アーカイブ</h1>
-  <p>「この業務、実はAIに任せられるかも？」<br>みんなで仕事を棚卸しした、あの夜の記録。</p>
   <div class="hero-meta">
     <span>AIワークショップ 1〜3期生</span>
     <span>参加 18名</span>
@@ -609,8 +610,8 @@
 
 <!-- ─── Overview ──────────────────────────────────────────── -->
 <section class="section">
-  <span class="section-label">What was this?</span>
-  <h2 class="section-title">このワークって、何だった？</h2>
+  <span class="section-label">Purpose</span>
+  <h2 class="section-title">このワークの狙いと目的</h2>
   <div class="overview-box">
     <p>AIを導入したい。でも、<strong>一体どこからAIに任せられるのか分からない</strong>——これはみんな共通の悩みでした。</p>
     <p>そこで今回は、ALC0期で野田さんが最初にやってくれて「衝撃だった」あの棚卸しワークを、1〜3期生みんなで同時にやってみる回に。自分の仕事をまるごと書き出して、Claudeに <strong>緑（丸ごと任せられる）・黄（一緒にやると楽になる）・赤（自分でやるべき）</strong> の3つに仕分けしてもらいました。</p>
