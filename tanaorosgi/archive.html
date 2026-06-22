@@ -267,6 +267,12 @@
     }
 
     /* ─── Needs Ranking ─────────────────────────────────────── */
+    .needs-section {
+      background: linear-gradient(165deg, #F3F8FF 0%, #E9F2FE 55%, #EFF6FF 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
     .needs-list {
       display: flex;
       flex-direction: column;
@@ -641,7 +647,7 @@
   <span class="hero-badge">Session Archive</span>
   <div class="hero-meta">
     <span>AIワークショップ 1〜3期生</span>
-    <span>参加 18名</span>
+    <span>最大 19名（講師3名含む）</span>
   </div>
 </section>
 
@@ -733,7 +739,8 @@
 </section>
 
 <!-- ─── Needs Ranking ─────────────────────────────────────── -->
-<section class="section" style="padding-top:0;">
+<section class="needs-section">
+  <div class="section">
   <span class="section-label">Everyone's Needs</span>
   <h2 class="section-title">みんなで多かったニーズ TOP5</h2>
   <p class="section-lead">全員のベスト3を見比べると、驚くほど共通したお悩みが浮かび上がってきました。</p>
@@ -779,10 +786,11 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- ─── Voices ────────────────────────────────────────────── -->
-<section class="section" style="padding-top:0;">
+<section class="section">
   <span class="section-label">Real Voices</span>
   <h2 class="section-title">みんなのリアルなベスト3</h2>
   <p class="section-lead">「こんな使い方があるんだ」がいっぱい。あなたのヒントを探してみてください。</p>
