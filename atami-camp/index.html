@@ -210,6 +210,134 @@
       margin-bottom: 14px;
     }
 
+    /* ─── Schedule ──────────────────────────────────────────── */
+    .sched { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+    .sched-day {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 26px;
+      box-shadow: 0 8px 24px rgba(37,99,235,0.05);
+    }
+
+    .sched-head {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-dark);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .sched-head span {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: var(--blue-mid);
+    }
+
+    .sched-row {
+      display: flex;
+      gap: 14px;
+      padding: 7px 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .sched-row .t {
+      flex-shrink: 0;
+      width: 68px;
+      color: var(--blue-mid);
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    /* ─── Codex Guide ───────────────────────────────────────── */
+    .guide-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 34px 32px;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.06);
+    }
+
+    .guide-box h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin: 26px 0 12px;
+      line-height: 1.5;
+    }
+
+    .guide-box h3:first-child { margin-top: 0; }
+    .guide-box p { font-size: 14px; line-height: 1.95; color: var(--text); }
+
+    .guide-steps {
+      list-style: none;
+      counter-reset: gstep;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .guide-steps li {
+      counter-increment: gstep;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .guide-steps li::before {
+      content: counter(gstep);
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-deep), var(--teal));
+      color: #fff;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .guide-steps code {
+      background: #EEF4FF;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1px 8px;
+      font-size: 13px;
+      color: var(--blue-deep);
+    }
+
+    .guide-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .guide-list li { display: flex; gap: 10px; font-size: 14px; line-height: 1.8; }
+    .guide-list li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--blue-light); margin-top: 9px; }
+
+    .guide-note {
+      background: var(--blue-bg);
+      border-left: 3px solid var(--blue-light);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-top: 24px;
+    }
+
     /* ─── Checklist ─────────────────────────────────────────── */
     .check-list {
       display: flex;
@@ -320,6 +448,7 @@
   <div class="hero-meta">
     <span>2026.7.3 Fri − 7.4 Sat</span>
     <span>in ATAMI / 熱海</span>
+    <span>参加者 8名（講師含む計11名）</span>
   </div>
 </section>
 
@@ -360,14 +489,66 @@
   </div>
 </section>
 
-<!-- ─── Schedule ──────────────────────────────────────────── -->
+<!-- ─── Codex Guide ───────────────────────────────────────── -->
 <section class="section">
+  <span class="section-label">Codex Guide</span>
+  <h2 class="section-title">コーデックス はじめてガイド</h2>
+  <p class="section-lead">合宿前に、ここだけ目を通しておくとスムーズです。<br>当日いっしょに動かしながら覚えていきましょう。</p>
+  <div class="guide-box">
+
+    <h3>コーデックスって？</h3>
+    <p>OpenAIが出しているAIコーディングエージェントです。Claude Codeと同じく、ターミナルに話しかけてLP・サイト・ツールを作れます。画像生成と組み合わせやすく、デザイン寄りのものを作るときに相性がいいのが特徴です。</p>
+
+    <h3>ダウンロード方法</h3>
+    <ol class="guide-steps">
+      <li>ターミナルを開く（Macは「ターミナル」アプリ）</li>
+      <li><code>npm install -g @openai/codex</code> を実行（※Node.jsが必要）</li>
+      <li><code>codex</code> と打って起動。初回はChatGPTアカウントまたはAPIキーでログイン</li>
+    </ol>
+
+    <h3>基本の使い方</h3>
+    <ul class="guide-list">
+      <li>作りたいものを、日本語で話しかけるだけ（Claude Codeと同じ感覚）</li>
+      <li>「こんなLPを作って」「ここをこう直して」で進めていける</li>
+      <li>うまくいかない時は、イメージや参考画像を見せると伝わりやすい</li>
+    </ul>
+
+    <h3>こんな使い方ができます</h3>
+    <ul class="guide-list">
+      <li>デザイン性のあるLP制作（写真・ビジュアル多めも得意）</li>
+      <li>画像生成と組み合わせた提案資料づくり</li>
+      <li>既存コードの修正・整理</li>
+    </ul>
+
+    <div class="guide-note">
+      インストール手順は変わることがあるので、<strong>当日いっしょに最新版で確認</strong>します。うまくいかなくても大丈夫、その場でサポートします。
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── Schedule ──────────────────────────────────────────── -->
+<section class="section" style="padding-top:0;">
   <span class="section-label">Schedule</span>
   <h2 class="section-title">当日のタイムスケジュール</h2>
-  <p class="section-lead">2日間の流れは、決まり次第ここに掲載します。</p>
-  <div class="placeholder">
-    <span class="tag">準備中</span><br>
-    DAY1・DAY2のタイムスケジュールがここに入ります。
+  <p class="section-lead">2日間の大きな流れです。詳細は当日ご案内します。</p>
+  <div class="sched">
+    <div class="sched-day">
+      <div class="sched-head">DAY 1 <span>7.3 Fri</span></div>
+      <div class="sched-row"><span class="t">10:00</span><span>熱海に集合</span></div>
+      <div class="sched-row"><span class="t">10:00〜</span><span>AI最新情報と当日の流れ共有（約1時間）</span></div>
+      <div class="sched-row"><span class="t">昼〜</span><span>集中作業スタート（各自で昼食）</span></div>
+      <div class="sched-row"><span class="t">〜18:00</span><span>制作・整備作業</span></div>
+      <div class="sched-row"><span class="t">夜</span><span>夕食・交流会（海鮮料理とドリンク）</span></div>
+      <div class="sched-row"><span class="t">夜</span><span>温泉・自由時間</span></div>
+    </div>
+    <div class="sched-day">
+      <div class="sched-head">DAY 2 <span>7.4 Sat</span></div>
+      <div class="sched-row"><span class="t">朝</span><span>朝食（希望者は自由）</span></div>
+      <div class="sched-row"><span class="t">午前</span><span>デプロイ作業（最終仕上げ・公開）</span></div>
+      <div class="sched-row"><span class="t">10:30〜</span><span>成果発表会</span></div>
+      <div class="sched-row"><span class="t">昼〜</span><span>締めくくり後、自由解散</span></div>
+    </div>
   </div>
 </section>
 
@@ -384,19 +565,43 @@
   </div>
 </section>
 
-<!-- ─── Member Ideas ──────────────────────────────────────── -->
+<!-- ─── Participants ──────────────────────────────────────── -->
 <section class="section" style="padding-top:0;">
-  <span class="section-label">From the Workshop</span>
-  <h2 class="section-title">合宿で形にしたいこと（一例）</h2>
-  <p class="section-lead">先日の棚卸しから、合宿で仕上げられそうなアイデアをピックアップ。</p>
+  <span class="section-label">Members</span>
+  <h2 class="section-title">参加者と、作りたいもの</h2>
+  <p class="section-lead">それぞれが合宿で形にしたいもの。お互いの内容を知って、刺激し合いましょう。<br>（各自の「作りたいもの」は申し込みフォームの回答から反映していきます）</p>
   <div class="idea-grid">
     <div class="idea-card">
-      <div class="who">はぬちゃん</div>
-      <p>パーティー当日にゲストが使える共有サイト。写真・思い出・クイズ・演出まで。パーティー業界でまだ誰もやっていない差別化ポイントに。</p>
+      <div class="who">あけみさん</div>
+      <p>作りたいもの：（申し込みフォームから反映予定）</p>
     </div>
     <div class="idea-card">
-      <div class="who">ななちゃん</div>
-      <p>編集ナレッジのサイト化。クライアント自身も編集できるよう、ワンポイントを教科書として共有。そのまま有料コンテンツにも。</p>
+      <div class="who">さーやん</div>
+      <p>作りたいもの：（申し込みフォームから反映予定）</p>
+    </div>
+    <div class="idea-card">
+      <div class="who">きこさん</div>
+      <p>作りたいもの：（申し込みフォームから反映予定）</p>
+    </div>
+    <div class="idea-card">
+      <div class="who">くわもんさん</div>
+      <p>作りたいもの：（申し込みフォームから反映予定）</p>
+    </div>
+    <div class="idea-card">
+      <div class="who">はぬちゃん</div>
+      <p>作りたいもの：（申し込みフォームから反映予定）</p>
+    </div>
+    <div class="idea-card">
+      <div class="who">ぞえさん</div>
+      <p>作りたいもの：（申し込みフォームから反映予定）</p>
+    </div>
+    <div class="idea-card">
+      <div class="who">中川さん</div>
+      <p>作りたいもの：（申し込みフォームから反映予定）</p>
+    </div>
+    <div class="idea-card">
+      <div class="who">まみさん</div>
+      <p>作りたいもの：（申し込みフォームから反映予定）</p>
     </div>
   </div>
 </section>
