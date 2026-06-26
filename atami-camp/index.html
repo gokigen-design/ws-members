@@ -191,6 +191,22 @@
     }
     .home-intro p { font-size: 14px; line-height: 1.95; color: var(--text); }
 
+    /* ─── Gallery ──────────────────────────────────────────── */
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .gallery figure {
+      margin: 0; border-radius: 16px; overflow: hidden; background: var(--white);
+      border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(37,99,235,0.06);
+    }
+    .gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+    .gallery figcaption { font-size: 13px; color: var(--text-dark); text-align: center; padding: 11px 8px; line-height: 1.6; }
+
+    /* ─── Topic hero image ─────────────────────────────────── */
+    .topic-hero {
+      border-radius: 18px; overflow: hidden; margin-bottom: 26px; line-height: 0;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.1);
+    }
+    .topic-hero img { width: 100%; max-height: 300px; object-fit: cover; display: block; }
+
     /* ─── Take home cards ──────────────────────────────────── */
     .take-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .take-card {
@@ -367,9 +383,10 @@
       <!-- ════ HOME ════ -->
       <section class="tab-panel active" id="tab-home">
         <div class="home-hero">
-          <a href="https://atami-ai-2026.pages.dev/" target="_blank" rel="noopener">
-            <img src="image/camp-banner.png" alt="AI合宿 in ATAMI">
-          </a>
+          <picture>
+            <source media="(max-width:640px)" srcset="image/hero-sp.webp">
+            <img src="image/hero-pc.webp" alt="AIオタクと行く、本気で遊び学ぶAI合宿 2026.7.3-7.4 in ATAMI">
+          </picture>
         </div>
 
         <div class="countdown">
@@ -382,6 +399,16 @@
           <h2>学んだAIを、<br>自分のサービスに変える2日間</h2>
           <p>AI合宿へのご参加、ありがとうございます。<br>“最新AI × 実践 × つながり” にどっぷり浸かる、AIづくしの1泊2日。<br>事前に決めてきたものを、仲間と講師といっしょに一気に形にしましょう。<br>当日の情報はこのページにまとめていきます。ブックマークしておいてくださいね。</p>
           <p style="margin-top:16px; color:var(--text-light);">海鮮料理に、最新AI情報、すぐ使えるTIPS、成果発表会まで。作る時間も楽しむ時間もたっぷりです。わくわくしながらお越しください。当日お会いできるのを楽しみにしています。</p>
+        </div>
+
+        <h3 class="block-title">当日の雰囲気</h3>
+        <div class="gallery">
+          <figure><img src="image/kougi.png" loading="lazy" alt="最新AIトレンドの講義"><figcaption>最新AIトレンドの講義</figcaption></figure>
+          <figure><img src="image/work-room.webp" loading="lazy" alt="和室で集中作業"><figcaption>和室で集中して作りきる</figcaption></figure>
+          <figure><img src="image/showcase.webp" loading="lazy" alt="成果発表会"><figcaption>成果発表会でお披露目</figcaption></figure>
+          <figure><img src="image/dinner-party.png" loading="lazy" alt="海鮮を囲む交流会"><figcaption>海の幸を囲んでの交流会</figcaption></figure>
+          <figure><img src="image/onsen-view.webp" loading="lazy" alt="温泉でリフレッシュ"><figcaption>温泉でリフレッシュ</figcaption></figure>
+          <figure><img src="image/deploy.png" loading="lazy" alt="完成して喜び合う"><figcaption>完成・公開してみんなで歓喜</figcaption></figure>
         </div>
 
         <h3 class="block-title">これを持ち帰ろう</h3>
@@ -494,6 +521,7 @@
         <span class="panel-label">Our Contents</span>
         <h2 class="panel-title">当日の最新トピックス</h2>
         <p class="panel-lead">今回の合宿で、私たちからシェアする最新コンテンツです。</p>
+        <div class="topic-hero"><img src="image/kougi.png" loading="lazy" alt="最新AIトレンドの講義の様子"></div>
         <div class="topic-grid">
           <div class="topic-card">
             <span class="num">Topic 01</span>
