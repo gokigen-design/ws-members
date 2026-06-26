@@ -267,6 +267,14 @@
     .prep-card .glist li { font-size: 14px; }
     .prep-card .mini { font-size: 13px; color: var(--text-light); margin-top: 12px; line-height: 1.75; }
 
+    /* ピンク反転（目立たせる）カード */
+    .prep-card.pink-fill { background: linear-gradient(135deg, var(--pink), var(--pink-soft)); border-color: transparent; box-shadow: 0 14px 34px rgba(255,45,120,0.3); }
+    .prep-card.pink-fill h3, .prep-card.pink-fill .glist li { color: #fff; }
+    .prep-card.pink-fill .prep-head .sub { color: rgba(255,255,255,0.92); }
+    .prep-card.pink-fill .glist li::before { background: #fff; }
+    .prep-card.pink-fill .prep-ico { background: #fff; }
+    .prep-card.pink-fill .prep-ico svg path { stroke: var(--pink); }
+
     /* ─── Guide / lists ────────────────────────────────────── */
     .box {
       background: var(--white); border: 1px solid var(--border); border-radius: 20px;
@@ -622,7 +630,7 @@
         </div>
 
         <!-- 服装 -->
-        <div class="prep-card">
+        <div class="prep-card pink-fill">
           <div class="prep-head">
             <div class="prep-ico pink">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 4l3 2 3-2 5 3-2 3-2-1v8H8v-8l-2 1-2-3 5-3z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg>
