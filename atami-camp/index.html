@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>AI合宿 in ATAMI ｜参加者ページ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,6 +17,7 @@
       --blue-bg:     #EFF6FF;
       --teal:        #0EA5E9;
       --pink:        #FF2D78;
+      --pink-soft:   #FF6FA3;
       --text:        #545454;
       --text-dark:   #1e3a5f;
       --text-light:  #7A8BA0;
@@ -31,64 +32,79 @@
       font-size: 15px;
       line-height: 1.85;
       color: var(--text);
-      background: #F8FBFF;
+      background: #F4F9FF;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ─── Hero ─────────────────────────────────────────────── */
-    .hero {
-      background: linear-gradient(160deg, #EFF6FF 0%, #F0F9FF 55%, #FFFFFF 100%);
-      text-align: center;
-      padding: 40px 24px 44px;
+    /* ─── Layout ───────────────────────────────────────────── */
+    .layout { display: flex; min-height: 100vh; }
+
+    .sidebar {
+      width: 248px;
+      flex-shrink: 0;
+      background: var(--white);
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 28px 18px;
+    }
+
+    .side-brand {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text-dark);
+      line-height: 1.5;
+      padding: 0 10px 18px;
       border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
     }
 
-    .hero-img-wrap {
-      max-width: 680px;
-      margin: 0 auto 26px;
-      line-height: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 36px rgba(37,99,235,0.12);
-    }
-
-    .hero-img-wrap img { width: 100%; height: auto; display: block; }
-
-    .hero-badge {
-      display: inline-block;
+    .side-brand span {
+      display: block;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 13px;
-      letter-spacing: 3px;
+      font-size: 12px;
+      letter-spacing: 2px;
       color: var(--blue-mid);
-      border: 1px solid var(--blue-pale);
-      border-radius: 100px;
-      padding: 7px 22px;
-      margin-bottom: 16px;
-      background: rgba(255,255,255,0.7);
+      margin-top: 4px;
     }
 
-    .hero-meta {
+    .nav-item {
       display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 13px 14px;
+      border: none;
+      background: transparent;
+      border-radius: 12px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.18s, color 0.18s;
+      margin-bottom: 4px;
     }
 
-    .hero-meta span {
-      font-size: 13px;
-      color: var(--blue-mid);
-      letter-spacing: 0.04em;
-    }
+    .nav-item svg { flex-shrink: 0; color: var(--blue-light); transition: color 0.18s; }
+    .nav-item:hover { background: var(--blue-bg); }
+    .nav-item.active { background: linear-gradient(135deg, var(--blue-deep), var(--teal)); color: #fff; }
+    .nav-item.active svg { color: #fff; }
 
-    /* ─── Sections ──────────────────────────────────────────── */
-    .section {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 60px 24px;
-    }
+    .main { flex: 1; min-width: 0; }
+    .content { max-width: 860px; margin: 0 auto; padding: 40px 28px 80px; }
 
-    .section-label {
+    .tab-panel { display: none; animation: fade 0.3s ease; }
+    .tab-panel.active { display: block; }
+    @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* ─── Headings ─────────────────────────────────────────── */
+    .panel-label {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 13px;
@@ -96,341 +112,219 @@
       color: var(--blue-mid);
       text-transform: uppercase;
       display: block;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .section-title {
-      font-family: 'Noto Serif JP', serif;
-      font-weight: 400;
-      font-size: clamp(21px, 3.5vw, 28px);
-      color: var(--text-dark);
-      line-height: 1.5;
-      margin-bottom: 14px;
-      text-align: center;
-    }
-
-    .section-lead {
-      font-size: 14px;
-      color: var(--text-light);
-      line-height: 1.9;
-      text-align: center;
-      max-width: 620px;
-      margin: 0 auto 40px;
-    }
-
-    /* ─── Overview ──────────────────────────────────────────── */
-    .overview-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 36px 34px;
-      box-shadow: 0 12px 40px rgba(37,99,235,0.06);
-    }
-
-    .overview-box p { font-size: 15px; line-height: 2; color: var(--text); }
-    .overview-box p + p { margin-top: 14px; }
-    .overview-box strong { color: var(--blue-deep); font-weight: 500; }
-
-    /* ─── Teacher Content ───────────────────────────────────── */
-    .content-section {
-      background: linear-gradient(165deg, #F3F8FF 0%, #E9F2FE 55%, #EFF6FF 100%);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .content-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 30px 28px;
-      box-shadow: 0 10px 30px rgba(37,99,235,0.06);
-    }
-
-    .content-card .num {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 14px;
-      letter-spacing: 2px;
-      color: var(--blue-light);
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .content-card h3 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 19px;
-      font-weight: 500;
-      color: var(--text-dark);
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
-
-    .content-card p { font-size: 14px; color: var(--text-light); line-height: 1.85; }
-
-    .content-card .coming {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 12px;
-      color: var(--blue-mid);
-      background: var(--blue-bg);
-      border-radius: 100px;
-      padding: 5px 14px;
-      letter-spacing: 0.04em;
-    }
-
-    /* ─── Placeholder block ─────────────────────────────────── */
-    .placeholder {
-      background: var(--white);
-      border: 1.5px dashed var(--blue-pale);
-      border-radius: 18px;
-      padding: 34px 28px;
-      text-align: center;
-      color: var(--text-light);
-      font-size: 14px;
-      line-height: 1.9;
-    }
-
-    .placeholder .tag {
-      display: inline-block;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: var(--blue-mid);
-      border: 1px solid var(--blue-pale);
-      border-radius: 100px;
-      padding: 4px 16px;
-      margin-bottom: 14px;
-    }
-
-    /* ─── Schedule ──────────────────────────────────────────── */
-    .sched { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-
-    .sched-day {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px 26px;
-      box-shadow: 0 8px 24px rgba(37,99,235,0.05);
-    }
-
-    .sched-head {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--text-dark);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-    }
-
-    .sched-head span {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 14px;
-      letter-spacing: 1px;
-      color: var(--blue-mid);
-    }
-
-    .sched-row {
-      display: flex;
-      gap: 14px;
-      padding: 7px 0;
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--text);
-    }
-
-    .sched-row .t {
-      flex-shrink: 0;
-      width: 68px;
-      color: var(--blue-mid);
-      font-weight: 500;
-      font-size: 13px;
-    }
-
-    /* ─── Codex Guide ───────────────────────────────────────── */
-    .guide-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 34px 32px;
-      box-shadow: 0 10px 30px rgba(37,99,235,0.06);
-    }
-
-    .guide-box h3 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--text-dark);
-      margin: 26px 0 12px;
-      line-height: 1.5;
-    }
-
-    .guide-box h3:first-child { margin-top: 0; }
-    .guide-box p { font-size: 14px; line-height: 1.95; color: var(--text); }
-
-    .guide-steps {
-      list-style: none;
-      counter-reset: gstep;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 6px;
-    }
-
-    .guide-steps li {
-      counter-increment: gstep;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .guide-steps li::before {
-      content: counter(gstep);
-      flex-shrink: 0;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue-deep), var(--teal));
-      color: #fff;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-    }
-
-    .guide-steps code {
-      background: #EEF4FF;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1px 8px;
-      font-size: 13px;
-      color: var(--blue-deep);
-    }
-
-    .guide-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .guide-list li { display: flex; gap: 10px; font-size: 14px; line-height: 1.8; }
-    .guide-list li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--blue-light); margin-top: 9px; }
-
-    .guide-note {
-      background: var(--blue-bg);
-      border-left: 3px solid var(--blue-light);
-      border-radius: 0 10px 10px 0;
-      padding: 14px 18px;
-      font-size: 13px;
-      line-height: 1.8;
-      color: var(--text);
-      margin-top: 24px;
-    }
-
-    /* ─── Checklist ─────────────────────────────────────────── */
-    .check-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .check-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 20px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--text);
-    }
-
-    .check-item .box {
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      border-radius: 7px;
-      border: 1.8px solid var(--blue-pale);
-      margin-top: 2px;
-    }
-
-    /* ─── Member ideas ──────────────────────────────────────── */
-    .idea-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .idea-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px 22px;
-    }
-
-    .idea-card .who {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--blue-deep);
       margin-bottom: 8px;
     }
 
-    .idea-card p { font-size: 14px; color: var(--text-light); line-height: 1.8; }
-    .idea-card .want { color: var(--text); }
-    .idea-card .stat { display: inline-block; font-size: 11px; color: var(--blue-mid); background: var(--blue-bg); border-radius: 100px; padding: 2px 10px; margin-left: 6px; vertical-align: middle; }
-    .idea-card .note { font-size: 13px; color: var(--text-light); margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); line-height: 1.7; }
-
-    /* ─── Links ─────────────────────────────────────────────── */
-    .link-list { display: flex; flex-direction: column; gap: 12px; max-width: 560px; margin: 0 auto; }
-
-    .link-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 22px;
-      text-decoration: none;
+    .panel-title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: clamp(22px, 3.5vw, 30px);
       color: var(--text-dark);
-      font-size: 15px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      line-height: 1.4;
+      margin-bottom: 12px;
     }
 
+    .panel-lead { font-size: 14px; color: var(--text-light); line-height: 1.9; margin-bottom: 30px; }
+
+    .block-title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: 19px;
+      color: var(--text-dark);
+      margin: 36px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .block-title::before {
+      content: '';
+      width: 5px; height: 20px;
+      border-radius: 3px;
+      background: linear-gradient(var(--blue-mid), var(--teal));
+    }
+
+    /* ─── Home Hero ────────────────────────────────────────── */
+    .home-hero {
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 14px 44px rgba(37,99,235,0.15);
+      margin-bottom: 22px;
+      line-height: 0;
+    }
+    .home-hero img { width: 100%; height: auto; display: block; }
+
+    .countdown {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-soft) 100%);
+      border-radius: 18px;
+      padding: 22px 24px;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 26px;
+      box-shadow: 0 10px 30px rgba(255,45,120,0.22);
+    }
+    .countdown .label { font-size: 13px; letter-spacing: 0.1em; opacity: 0.95; }
+    .countdown .num {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+    .countdown .sub { font-size: 13px; opacity: 0.95; margin-top: 2px; }
+
+    .home-intro {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px 30px;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.05);
+      text-align: center;
+    }
+    .home-intro h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: clamp(20px, 3.2vw, 26px);
+      color: var(--text-dark);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .home-intro p { font-size: 14px; line-height: 1.95; color: var(--text); }
+
+    /* ─── Take home cards ──────────────────────────────────── */
+    .take-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .take-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .take-card .ico {
+      width: 48px; height: 48px; margin: 0 auto 14px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue-deep), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .take-card h4 { font-family: 'Noto Serif JP', serif; font-weight: 500; font-size: 15px; color: var(--text-dark); line-height: 1.5; margin-bottom: 6px; }
+    .take-card p { font-size: 13px; color: var(--text-light); line-height: 1.8; }
+
+    /* ─── Venue ────────────────────────────────────────────── */
+    .venue-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px 28px;
+    }
+    .venue-row { display: flex; gap: 14px; padding: 10px 0; font-size: 14px; line-height: 1.7; border-bottom: 1px dashed var(--border); }
+    .venue-row:last-child { border-bottom: none; }
+    .venue-row .k { flex-shrink: 0; width: 90px; color: var(--blue-mid); font-weight: 500; }
+
+    /* ─── Schedule ─────────────────────────────────────────── */
+    .sched { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .sched-day { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 24px 26px; box-shadow: 0 8px 24px rgba(37,99,235,0.05); }
+    .sched-head {
+      font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 500; color: var(--text-dark);
+      border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 12px;
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .sched-head span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; letter-spacing: 1px; color: var(--blue-mid); }
+    .sched-row { display: flex; gap: 14px; padding: 7px 0; font-size: 14px; line-height: 1.7; color: var(--text); }
+    .sched-row .t { flex-shrink: 0; width: 68px; color: var(--blue-mid); font-weight: 500; font-size: 13px; }
+
+    /* ─── Guide / lists ────────────────────────────────────── */
+    .box {
+      background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+      padding: 30px 30px; box-shadow: 0 10px 30px rgba(37,99,235,0.05);
+    }
+    .box h3 { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 500; color: var(--text-dark); margin: 26px 0 12px; line-height: 1.5; }
+    .box h3:first-child { margin-top: 0; }
+    .box p { font-size: 14px; line-height: 1.95; color: var(--text); }
+
+    .glist { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .glist li { display: flex; gap: 10px; font-size: 14px; line-height: 1.8; }
+    .glist li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--blue-light); margin-top: 9px; }
+
+    .steps { list-style: none; counter-reset: st; display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
+    .steps li { counter-increment: st; display: flex; gap: 14px; align-items: flex-start; font-size: 14px; line-height: 1.8; }
+    .steps li::before {
+      content: counter(st); flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-deep), var(--teal)); color: #fff;
+      font-family: 'Cormorant Garamond', serif; font-size: 14px;
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .steps code { background: #EEF4FF; border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; font-size: 13px; color: var(--blue-deep); }
+
+    .note {
+      background: var(--blue-bg); border-left: 3px solid var(--blue-light); border-radius: 0 10px 10px 0;
+      padding: 14px 18px; font-size: 13px; line-height: 1.8; color: var(--text); margin-top: 24px;
+    }
+    .note strong { color: var(--blue-deep); font-weight: 500; }
+
+    /* ─── Content cards (topics) ───────────────────────────── */
+    .topic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 8px; }
+    .topic-card { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 26px 24px; box-shadow: 0 8px 24px rgba(37,99,235,0.05); }
+    .topic-card .num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; letter-spacing: 2px; color: var(--blue-light); display: block; margin-bottom: 8px; }
+    .topic-card h3 { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 500; color: var(--text-dark); margin-bottom: 10px; line-height: 1.5; }
+    .topic-card p { font-size: 14px; color: var(--text-light); line-height: 1.85; }
+    .topic-card .coming { display: inline-block; margin-top: 14px; font-size: 12px; color: var(--blue-mid); background: var(--blue-bg); border-radius: 100px; padding: 5px 14px; }
+
+    /* ─── Members (clickable) ──────────────────────────────── */
+    .member-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+    .member-btn {
+      border: 1.5px solid var(--border); background: var(--white); border-radius: 100px;
+      padding: 10px 20px; font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: 500;
+      color: var(--text-dark); cursor: pointer; transition: all 0.18s;
+    }
+    .member-btn:hover { border-color: var(--blue-light); }
+    .member-btn.active { background: linear-gradient(135deg, var(--blue-deep), var(--teal)); color: #fff; border-color: transparent; }
+
+    .member-detail {
+      background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+      padding: 32px 32px; box-shadow: 0 10px 30px rgba(37,99,235,0.06); min-height: 180px;
+    }
+    .member-detail .who { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 500; color: var(--blue-deep); margin-bottom: 6px; }
+    .member-detail .stat { display: inline-block; font-size: 12px; color: var(--blue-mid); background: var(--blue-bg); border-radius: 100px; padding: 3px 12px; margin-bottom: 18px; }
+    .member-detail .want-label { font-size: 12px; color: var(--text-light); letter-spacing: 0.05em; margin-bottom: 6px; }
+    .member-detail .want { font-size: 17px; color: var(--text-dark); line-height: 1.7; font-weight: 500; }
+    .member-detail .mnote { font-size: 14px; color: var(--text-light); line-height: 1.8; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); }
+
+    /* ─── Placeholder ──────────────────────────────────────── */
+    .placeholder {
+      background: var(--white); border: 1.5px dashed var(--blue-pale); border-radius: 18px;
+      padding: 30px 26px; text-align: center; color: var(--text-light); font-size: 14px; line-height: 1.9;
+    }
+    .placeholder .tag {
+      display: inline-block; font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 12px; letter-spacing: 2px; color: var(--blue-mid);
+      border: 1px solid var(--blue-pale); border-radius: 100px; padding: 4px 16px; margin-bottom: 12px;
+    }
+
+    .links { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+    .link-item {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+      padding: 16px 22px; text-decoration: none; color: var(--text-dark); font-size: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
     .link-item:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,99,235,0.1); }
     .link-item svg { color: var(--blue-light); flex-shrink: 0; }
 
-    /* ─── Footer ────────────────────────────────────────────── */
-    footer { background: var(--text-dark); padding: 32px 24px; text-align: center; }
-    footer p {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 13px;
-      letter-spacing: 2px;
-      color: rgba(255,255,255,0.4);
-    }
-
-    /* ─── Responsive ────────────────────────────────────────── */
-    @media (max-width: 640px) {
-      .hero { padding: 32px 18px 40px; }
-      .section { padding: 44px 18px; }
-      .overview-box { padding: 26px 20px; }
-      .content-grid, .idea-grid { grid-template-columns: 1fr; }
+    /* ─── Responsive ───────────────────────────────────────── */
+    @media (max-width: 820px) {
+      .layout { flex-direction: column; }
+      .sidebar {
+        width: 100%; height: auto; position: sticky; top: 0; z-index: 50;
+        padding: 12px 12px; border-right: none; border-bottom: 1px solid var(--border);
+        display: flex; align-items: center; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+      }
+      .side-brand { display: none; }
+      .nav-item { width: auto; flex-shrink: 0; padding: 9px 14px; margin-bottom: 0; white-space: nowrap; font-size: 13px; }
+      .nav-item svg { display: none; }
+      .content { padding: 28px 18px 70px; }
+      .take-grid { grid-template-columns: 1fr; }
+      .sched { grid-template-columns: 1fr; }
+      .topic-grid { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -439,238 +333,279 @@
   </style>
 </head>
 <body>
+<div class="layout">
 
-<!-- ─── Hero ─────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-img-wrap">
-    <a href="https://atami-ai-2026.pages.dev/" target="_blank" rel="noopener">
-      <img src="image/camp-banner.png" alt="AI合宿 in ATAMI">
-    </a>
-  </div>
-  <span class="hero-badge">Members Only</span>
-  <div class="hero-meta">
-    <span>2026.7.3 Fri − 7.4 Sat</span>
-    <span>in ATAMI / 熱海</span>
-    <span>参加者 8名（講師含む計11名）</span>
-  </div>
-</section>
+  <!-- ─── Sidebar ─────────────────────────────────────────── -->
+  <nav class="sidebar">
+    <div class="side-brand">AI合宿 in ATAMI<span>Members Page</span></div>
+    <button class="nav-item active" id="nav-home" onclick="showTab('home')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7M5 10v9a1 1 0 001 1h12a1 1 0 001-1v-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      ホーム
+    </button>
+    <button class="nav-item" id="nav-schedule" onclick="showTab('schedule')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      タイムスケジュール
+    </button>
+    <button class="nav-item" id="nav-bring" onclick="showTab('bring')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 8h14l-1 12H6L5 8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.6"/></svg>
+      持ち物・準備
+    </button>
+    <button class="nav-item" id="nav-topics" onclick="showTab('topics')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5L12 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      当日の最新トピックス
+    </button>
+    <button class="nav-item" id="nav-tasks" onclick="showTab('tasks')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      個人で取り組む課題
+    </button>
+  </nav>
 
-<!-- ─── Overview ──────────────────────────────────────────── -->
-<section class="section">
-  <span class="section-label">Welcome</span>
-  <h2 class="section-title">学んだAIを、<br>自分のサービスに変える2日間</h2>
-  <div class="overview-box">
-    <p>AI合宿へのご参加、ありがとうございます。このページは<strong>合宿参加者だけのページ</strong>です。</p>
-    <p>当日の流れ・持ち物・私たちからお渡しするコンテンツ（コーデックスでのLP制作など）を、ここにまとめていきます。<strong>当日も、終わったあとも、ここに戻ってくればOK</strong>という状態にしておきます。</p>
-    <p>ブックマークしておいてくださいね。</p>
-  </div>
-</section>
+  <!-- ─── Main ────────────────────────────────────────────── -->
+  <main class="main">
+    <div class="content">
 
-<!-- ─── Teacher Content ───────────────────────────────────── -->
-<section class="content-section">
-  <div class="section">
-    <span class="section-label">Our Contents</span>
-    <h2 class="section-title">私たちからお渡しするもの</h2>
-    <p class="section-lead">今回の合宿で、私たちからシェアする最新コンテンツです。</p>
-    <div class="content-grid">
+      <!-- ════ HOME ════ -->
+      <section class="tab-panel active" id="tab-home">
+        <div class="home-hero">
+          <a href="https://atami-ai-2026.pages.dev/" target="_blank" rel="noopener">
+            <img src="image/camp-banner.png" alt="AI合宿 in ATAMI">
+          </a>
+        </div>
 
-      <div class="content-card">
-        <span class="num">Content 01</span>
-        <h3>コーデックスでLPを作る方法</h3>
-        <p>Claude Codeとはまた違う、コーデックスを使ったLP制作の流れを実演＆手順でお渡しします。デザイン性のある仕上がりを、より簡単に。</p>
-        <span class="coming">当日公開・あとで動画も追加予定</span>
-      </div>
+        <div class="countdown">
+          <div class="label">合宿まで</div>
+          <div class="num" id="countdown">あと —</div>
+          <div class="sub">2026.7.3 Fri − 7.4 Sat ／ in ATAMI 熱海</div>
+        </div>
 
-      <div class="content-card">
-        <span class="num">Content 02</span>
-        <h3>コーデックスの活用方法</h3>
-        <p>そもそもコーデックスって何？どんな時に使う？Claude Codeとの使い分けは？最新の流れと、すぐ使える活用法をまとめます。</p>
-        <span class="coming">当日公開・あとで動画も追加予定</span>
-      </div>
+        <div class="home-intro">
+          <h2>学んだAIを、<br>自分のサービスに変える2日間</h2>
+          <p>AI合宿へのご参加、ありがとうございます。<br>“最新AI × 実践 × つながり” にどっぷり浸かる、AIづくしの1泊2日。<br>事前に決めてきたものを、仲間と講師といっしょに一気に形にしましょう。<br>当日の情報はこのページにまとめていきます。ブックマークしておいてくださいね。</p>
+        </div>
+
+        <h3 class="block-title">これを持ち帰ろう</h3>
+        <div class="take-grid">
+          <div class="take-card">
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H4zM8 20h8M12 16v4" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h4>形になった成果物</h4>
+            <p>LP・ツール・講座導線など、自分のサービスに必要なものを1つ完成させて持ち帰る</p>
+          </div>
+          <div class="take-card">
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5L12 3z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+            <h4>コーデックスの使い方</h4>
+            <p>コーデックスでのLP制作の流れを、自分の手で再現できるようになる</p>
+          </div>
+          <div class="take-card">
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h4>動き出す自分</h4>
+            <p>棚卸しで決めた「最初の一手」を、合宿中にしっかり動かし始める</p>
+          </div>
+        </div>
+
+        <h3 class="block-title">当日の会場・集合</h3>
+        <div class="venue-box">
+          <div class="venue-row"><span class="k">集合</span><span>7月3日（金）10:00 ／ 熱海に集合</span></div>
+          <div class="venue-row"><span class="k">会場</span><span>熱海のお宿（1部屋2台の洗面台でゆったり使えます）</span></div>
+          <div class="venue-row"><span class="k">アクセス</span><span>くわしい集合場所・住所は決まり次第ここに掲載します</span></div>
+        </div>
+      </section>
+
+      <!-- ════ SCHEDULE ════ -->
+      <section class="tab-panel" id="tab-schedule">
+        <span class="panel-label">Schedule</span>
+        <h2 class="panel-title">タイムスケジュール</h2>
+        <p class="panel-lead">2日間の大きな流れです。詳細は当日ご案内します。</p>
+        <div class="sched">
+          <div class="sched-day">
+            <div class="sched-head">DAY 1 <span>7.3 Fri</span></div>
+            <div class="sched-row"><span class="t">10:00</span><span>熱海に集合</span></div>
+            <div class="sched-row"><span class="t">10:00〜</span><span>AI最新情報と当日の流れ共有（約1時間）</span></div>
+            <div class="sched-row"><span class="t">昼〜</span><span>集中作業スタート（各自で昼食）</span></div>
+            <div class="sched-row"><span class="t">〜18:00</span><span>制作・整備作業</span></div>
+            <div class="sched-row"><span class="t">夜</span><span>夕食・交流会（海鮮料理とドリンク）</span></div>
+            <div class="sched-row"><span class="t">夜</span><span>温泉・自由時間</span></div>
+          </div>
+          <div class="sched-day">
+            <div class="sched-head">DAY 2 <span>7.4 Sat</span></div>
+            <div class="sched-row"><span class="t">朝</span><span>朝食（希望者は自由）</span></div>
+            <div class="sched-row"><span class="t">午前</span><span>デプロイ作業（最終仕上げ・公開）</span></div>
+            <div class="sched-row"><span class="t">10:30〜</span><span>成果発表会</span></div>
+            <div class="sched-row"><span class="t">昼〜</span><span>締めくくり後、自由解散</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════ BRING ════ -->
+      <section class="tab-panel" id="tab-bring">
+        <span class="panel-label">Checklist</span>
+        <h2 class="panel-title">持ち物・事前準備</h2>
+        <p class="panel-lead">当日を身軽に、たっぷり楽しむために。ここをチェックしておいてください。</p>
+        <div class="box">
+          <h3>必ず持ってくるもの</h3>
+          <ul class="glist">
+            <li>ノートパソコン・充電器</li>
+            <li>メモ帳・筆記用具</li>
+            <li>楽しむ心</li>
+          </ul>
+
+          <h3>服装（できれば白テーマで）</h3>
+          <ul class="glist">
+            <li>できれば白い服で（トップス・スカート・小物など）</li>
+            <li>特に「白いボトムス」があると◎。当日ちょっとしたお楽しみを用意しているので、みんなで撮る写真がそろってかわいくなります</li>
+          </ul>
+
+          <h3>宿泊先に用意されているもの（持参不要）</h3>
+          <ul class="glist">
+            <li>バスタオル・ハンドタオル・歯磨きセット</li>
+            <li>シャンプー・リンス・ボディソープ・髭剃り</li>
+            <li>浴衣・スリッパ・くし／ブラシ・シャワーキャップ・綿棒</li>
+            <li>洗面台は1部屋2台で、ゆったり使えます</li>
+          </ul>
+
+          <h3>これは持ってきてね</h3>
+          <ul class="glist">
+            <li>洗顔・化粧水・メイク落とし（スキンケアは備え付けがないので、お気に入りを）</li>
+            <li>マイパジャマ派の方は、パジャマを（浴衣はあります）</li>
+            <li>お箸など、こだわりがあればご持参ください</li>
+          </ul>
+
+          <p style="font-size:13px; color:var(--text-light); margin-top:18px;">お水や基本的なものは、こちらで用意します。</p>
+        </div>
+      </section>
+
+      <!-- ════ TOPICS ════ -->
+      <section class="tab-panel" id="tab-topics">
+        <span class="panel-label">Our Contents</span>
+        <h2 class="panel-title">当日の最新トピックス</h2>
+        <p class="panel-lead">今回の合宿で、私たちからシェアする最新コンテンツです。</p>
+        <div class="topic-grid">
+          <div class="topic-card">
+            <span class="num">Topic 01</span>
+            <h3>コーデックスでLPを作る方法</h3>
+            <p>Claude Codeとはまた違う、コーデックスを使ったLP制作の流れを実演＆手順でお渡しします。デザイン性のある仕上がりを、より簡単に。</p>
+            <span class="coming">当日公開・あとで動画も追加予定</span>
+          </div>
+          <div class="topic-card">
+            <span class="num">Topic 02</span>
+            <h3>コーデックスの活用方法</h3>
+            <p>そもそもコーデックスって何？どんな時に使う？Claude Codeとの使い分けは？最新の流れと、すぐ使える活用法をまとめます。</p>
+            <span class="coming">当日公開・あとで動画も追加予定</span>
+          </div>
+        </div>
+
+        <h3 class="block-title">コーデックス はじめてガイド</h3>
+        <div class="box">
+          <h3>コーデックスって？</h3>
+          <p>OpenAIが出しているAIコーディングエージェントです。Claude Codeと同じく、ターミナルに話しかけてLP・サイト・ツールを作れます。画像生成と組み合わせやすく、デザイン寄りのものを作るときに相性がいいのが特徴です。</p>
+
+          <h3>ダウンロード方法</h3>
+          <ol class="steps">
+            <li>ターミナルを開く（Macは「ターミナル」アプリ）</li>
+            <li><code>npm install -g @openai/codex</code> を実行（※Node.jsが必要）</li>
+            <li><code>codex</code> と打って起動。初回はChatGPTアカウントまたはAPIキーでログイン</li>
+          </ol>
+
+          <h3>基本の使い方</h3>
+          <ul class="glist">
+            <li>作りたいものを、日本語で話しかけるだけ（Claude Codeと同じ感覚）</li>
+            <li>「こんなLPを作って」「ここをこう直して」で進めていける</li>
+            <li>うまくいかない時は、イメージや参考画像を見せると伝わりやすい</li>
+          </ul>
+
+          <h3>こんな使い方ができます</h3>
+          <ul class="glist">
+            <li>デザイン性のあるLP制作（写真・ビジュアル多めも得意）</li>
+            <li>画像生成と組み合わせた提案資料づくり</li>
+            <li>既存コードの修正・整理</li>
+          </ul>
+
+          <div class="note">インストール手順は変わることがあるので、<strong>当日いっしょに最新版で確認</strong>します。うまくいかなくても大丈夫、その場でサポートします。</div>
+        </div>
+      </section>
+
+      <!-- ════ TASKS ════ -->
+      <section class="tab-panel" id="tab-tasks">
+        <span class="panel-label">Members</span>
+        <h2 class="panel-title">個人で取り組む課題</h2>
+        <p class="panel-lead">名前を押すと、その人が合宿で形にしたいものが見られます。お互いを知って、刺激し合いましょう。</p>
+        <div class="member-tabs" id="member-tabs"></div>
+        <div class="member-detail" id="member-detail"></div>
+
+        <h3 class="block-title">関連リンク</h3>
+        <div class="links">
+          <a href="https://atami-ai-2026.pages.dev/" target="_blank" rel="noopener" class="link-item">
+            <span>AI合宿の案内ページ（LP）</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://gokigen-design.github.io/ws-members/tanaorosgi/archive.html" target="_blank" rel="noopener" class="link-item">
+            <span>棚卸しセッションのアーカイブ</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
 
     </div>
-  </div>
-</section>
+  </main>
+</div>
 
-<!-- ─── Codex Guide ───────────────────────────────────────── -->
-<section class="section">
-  <span class="section-label">Codex Guide</span>
-  <h2 class="section-title">コーデックス はじめてガイド</h2>
-  <p class="section-lead">合宿前に、ここだけ目を通しておくとスムーズです。<br>当日いっしょに動かしながら覚えていきましょう。</p>
-  <div class="guide-box">
+<script>
+  // ─── タブ切り替え ───────────────────────────────
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById('tab-' + id).classList.add('active');
+    document.querySelectorAll('.nav-item').forEach(function(n){ n.classList.remove('active'); });
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
 
-    <h3>コーデックスって？</h3>
-    <p>OpenAIが出しているAIコーディングエージェントです。Claude Codeと同じく、ターミナルに話しかけてLP・サイト・ツールを作れます。画像生成と組み合わせやすく、デザイン寄りのものを作るときに相性がいいのが特徴です。</p>
+  // ─── カウントダウン ─────────────────────────────
+  (function() {
+    var target = new Date('2026-07-03T10:00:00+09:00');
+    var now = new Date();
+    var diff = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+    var el = document.getElementById('countdown');
+    if (diff > 1) el.textContent = 'あと ' + diff + ' 日';
+    else if (diff === 1) el.textContent = 'いよいよ明日！';
+    else if (diff <= 0 && diff > -2) el.textContent = '開催中！';
+    else el.textContent = 'ありがとうございました！';
+  })();
 
-    <h3>ダウンロード方法</h3>
-    <ol class="guide-steps">
-      <li>ターミナルを開く（Macは「ターミナル」アプリ）</li>
-      <li><code>npm install -g @openai/codex</code> を実行（※Node.jsが必要）</li>
-      <li><code>codex</code> と打って起動。初回はChatGPTアカウントまたはAPIキーでログイン</li>
-    </ol>
+  // ─── 参加者データ ───────────────────────────────
+  var members = [
+    { id:'akemi', name:'あけみさん', stat:'構想段階', want:'アプリ または サイト', note:'' },
+    { id:'saa',   name:'さーやん',   stat:'作りかけ', want:'LPの完成（途中で止まっているので、合宿で仕上げる）', note:'' },
+    { id:'kiko',  name:'きこさん',   stat:'構想段階', want:'アプリ・ナレッジ蓄積・会員サイト', note:'相談：脱・UTAGEはできる？（コンテンツサイト・決済・顧客管理）' },
+    { id:'kuwa',  name:'くわもんさん', stat:'構想段階', want:'アプリ または サイト', note:'' },
+    { id:'hanu',  name:'はぬちゃん', stat:'構想段階', want:'お客様への提案書、またはパーティー当日に使える演出ツール', note:'' },
+    { id:'zoe',   name:'ぞえさん',   stat:'作りかけ', want:'LINE導線の構築（教育動画3本・LINE特典3つ・診断ツール・LPの完成）', note:'' },
+    { id:'naka',  name:'中川さん',   stat:'構想段階', want:'当日いっしょに決めましょう', note:'' },
+    { id:'mami',  name:'まみさん',   stat:'構想段階', want:'LP・アウトプットツール（LINE連携）・会計簡略システム', note:'相談：LINE連携のやり方' }
+  ];
 
-    <h3>基本の使い方</h3>
-    <ul class="guide-list">
-      <li>作りたいものを、日本語で話しかけるだけ（Claude Codeと同じ感覚）</li>
-      <li>「こんなLPを作って」「ここをこう直して」で進めていける</li>
-      <li>うまくいかない時は、イメージや参考画像を見せると伝わりやすい</li>
-    </ul>
+  (function() {
+    var tabs = document.getElementById('member-tabs');
+    members.forEach(function(m, i) {
+      var b = document.createElement('button');
+      b.className = 'member-btn' + (i === 0 ? ' active' : '');
+      b.textContent = m.name;
+      b.onclick = function() { selectMember(m.id); };
+      b.id = 'mbtn-' + m.id;
+      tabs.appendChild(b);
+    });
+    selectMember(members[0].id);
+  })();
 
-    <h3>こんな使い方ができます</h3>
-    <ul class="guide-list">
-      <li>デザイン性のあるLP制作（写真・ビジュアル多めも得意）</li>
-      <li>画像生成と組み合わせた提案資料づくり</li>
-      <li>既存コードの修正・整理</li>
-    </ul>
-
-    <div class="guide-note">
-      インストール手順は変わることがあるので、<strong>当日いっしょに最新版で確認</strong>します。うまくいかなくても大丈夫、その場でサポートします。
-    </div>
-
-  </div>
-</section>
-
-<!-- ─── Schedule ──────────────────────────────────────────── -->
-<section class="section" style="padding-top:0;">
-  <span class="section-label">Schedule</span>
-  <h2 class="section-title">当日のタイムスケジュール</h2>
-  <p class="section-lead">2日間の大きな流れです。詳細は当日ご案内します。</p>
-  <div class="sched">
-    <div class="sched-day">
-      <div class="sched-head">DAY 1 <span>7.3 Fri</span></div>
-      <div class="sched-row"><span class="t">10:00</span><span>熱海に集合</span></div>
-      <div class="sched-row"><span class="t">10:00〜</span><span>AI最新情報と当日の流れ共有（約1時間）</span></div>
-      <div class="sched-row"><span class="t">昼〜</span><span>集中作業スタート（各自で昼食）</span></div>
-      <div class="sched-row"><span class="t">〜18:00</span><span>制作・整備作業</span></div>
-      <div class="sched-row"><span class="t">夜</span><span>夕食・交流会（海鮮料理とドリンク）</span></div>
-      <div class="sched-row"><span class="t">夜</span><span>温泉・自由時間</span></div>
-    </div>
-    <div class="sched-day">
-      <div class="sched-head">DAY 2 <span>7.4 Sat</span></div>
-      <div class="sched-row"><span class="t">朝</span><span>朝食（希望者は自由）</span></div>
-      <div class="sched-row"><span class="t">午前</span><span>デプロイ作業（最終仕上げ・公開）</span></div>
-      <div class="sched-row"><span class="t">10:30〜</span><span>成果発表会</span></div>
-      <div class="sched-row"><span class="t">昼〜</span><span>締めくくり後、自由解散</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── Take Home ─────────────────────────────────────────── -->
-<section class="section" style="padding-top:0;">
-  <span class="section-label">Take Home</span>
-  <h2 class="section-title">当日、持ち帰りたいこと</h2>
-  <p class="section-lead">合宿が終わったとき、この状態になっていたら大成功。</p>
-  <div class="check-list">
-    <div class="check-item"><span class="box"></span><span>自分のサービスに必要なもの（LP・ツール・講座導線など）を1つ、形にして持ち帰る</span></div>
-    <div class="check-item"><span class="box"></span><span>コーデックスでのLP制作の流れを、自分の手で再現できるようになる</span></div>
-    <div class="check-item"><span class="box"></span><span>棚卸しで決めた「最初の一手」を、合宿中に動かし始める</span></div>
-    <div class="check-item"><span class="box"></span><span>（ここに各自の持ち帰りたいことを追記できます）</span></div>
-  </div>
-</section>
-
-<!-- ─── Participants ──────────────────────────────────────── -->
-<section class="section" style="padding-top:0;">
-  <span class="section-label">Members</span>
-  <h2 class="section-title">参加者と、作りたいもの</h2>
-  <p class="section-lead">それぞれが合宿で形にしたいもの。お互いの内容を知って、刺激し合いましょう。</p>
-  <div class="idea-grid">
-    <div class="idea-card">
-      <div class="who">あけみさん</div>
-      <p class="want">アプリ または サイト<span class="stat">構想段階</span></p>
-    </div>
-    <div class="idea-card">
-      <div class="who">さーやん</div>
-      <p class="want">LPの完成（途中で止まっているので、合宿で仕上げる）<span class="stat">作りかけ</span></p>
-    </div>
-    <div class="idea-card">
-      <div class="who">きこさん</div>
-      <p class="want">アプリ・ナレッジ蓄積・会員サイト<span class="stat">構想段階</span></p>
-      <p class="note">相談：脱・UTAGEはできる？（コンテンツサイト・決済・顧客管理）</p>
-    </div>
-    <div class="idea-card">
-      <div class="who">くわもんさん</div>
-      <p class="want">アプリ または サイト<span class="stat">構想段階</span></p>
-    </div>
-    <div class="idea-card">
-      <div class="who">はぬちゃん</div>
-      <p class="want">お客様への提案書、またはパーティー当日に使える演出ツール<span class="stat">構想段階</span></p>
-    </div>
-    <div class="idea-card">
-      <div class="who">ぞえさん</div>
-      <p class="want">LINE導線の構築（教育動画3本・LINE特典3つ・診断ツール・LPの完成）<span class="stat">作りかけ</span></p>
-    </div>
-    <div class="idea-card">
-      <div class="who">中川さん</div>
-      <p class="want">当日いっしょに決めましょう<span class="stat">構想段階</span></p>
-    </div>
-    <div class="idea-card">
-      <div class="who">まみさん</div>
-      <p class="want">LP・アウトプットツール（LINE連携）・会計簡略システム<span class="stat">構想段階</span></p>
-      <p class="note">相談：LINE連携のやり方</p>
-    </div>
-  </div>
-</section>
-
-<!-- ─── What to Bring ─────────────────────────────────────── -->
-<section class="section" style="padding-top:0;">
-  <span class="section-label">Checklist</span>
-  <h2 class="section-title">持ち物・事前準備</h2>
-  <p class="section-lead">当日を身軽に、たっぷり楽しむために。ここをチェックしておいてください。</p>
-  <div class="guide-box">
-
-    <h3>必ず持ってくるもの</h3>
-    <ul class="guide-list">
-      <li>ノートパソコン・充電器</li>
-      <li>メモ帳・筆記用具</li>
-      <li>楽しむ心</li>
-    </ul>
-
-    <h3>服装（できれば白テーマで）</h3>
-    <ul class="guide-list">
-      <li>できれば白い服で（トップス・スカート・小物など）</li>
-      <li>特に「白いボトムス」があると◎。当日ちょっとしたお楽しみを用意しているので、みんなで撮る写真がそろってかわいくなります</li>
-    </ul>
-
-    <h3>宿泊先に用意されているもの（持参不要）</h3>
-    <ul class="guide-list">
-      <li>バスタオル・ハンドタオル・歯磨きセット</li>
-      <li>シャンプー・リンス・ボディソープ・髭剃り</li>
-      <li>浴衣・スリッパ・くし／ブラシ・シャワーキャップ・綿棒</li>
-      <li>洗面台は1部屋2台で、ゆったり使えます</li>
-    </ul>
-
-    <h3>これは持ってきてね</h3>
-    <ul class="guide-list">
-      <li>洗顔・化粧水・メイク落とし（スキンケアは備え付けがないので、お気に入りを）</li>
-      <li>マイパジャマ派の方は、パジャマを（浴衣はあります）</li>
-      <li>お箸など、こだわりがあればご持参ください</li>
-    </ul>
-
-    <p style="font-size:13px; color:var(--text-light); margin-top:18px; line-height:1.8;">お水や基本的なものは、こちらで用意します。</p>
-
-  </div>
-</section>
-
-<!-- ─── Links ─────────────────────────────────────────────── -->
-<section class="section" style="padding-top:0;">
-  <span class="section-label">Links</span>
-  <h2 class="section-title">関連リンク</h2>
-  <div class="link-list">
-    <a href="https://atami-ai-2026.pages.dev/" target="_blank" rel="noopener" class="link-item">
-      <span>AI合宿の案内ページ（LP）</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="https://gokigen-design.github.io/ws-members/tanaorosgi/archive.html" target="_blank" rel="noopener" class="link-item">
-      <span>棚卸しセッションのアーカイブ</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ─── Footer ────────────────────────────────────────────── -->
-<footer>
-  <p>AI Camp in ATAMI — Members Page 2026</p>
-</footer>
-
+  function selectMember(id) {
+    var m = members.find(function(x){ return x.id === id; });
+    document.querySelectorAll('.member-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.getElementById('mbtn-' + id).classList.add('active');
+    var html = '<div class="who">' + m.name + '</div>'
+      + '<span class="stat">' + m.stat + '</span>'
+      + '<div class="want-label">合宿で作りたいもの</div>'
+      + '<div class="want">' + m.want + '</div>'
+      + (m.note ? '<div class="mnote">' + m.note + '</div>' : '');
+    document.getElementById('member-detail').innerHTML = html;
+  }
+</script>
 </body>
 </html>
