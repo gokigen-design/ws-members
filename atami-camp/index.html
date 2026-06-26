@@ -248,6 +248,25 @@
     .sched-row { display: flex; gap: 14px; padding: 7px 0; font-size: 14px; line-height: 1.7; color: var(--text); }
     .sched-row .t { flex-shrink: 0; width: 68px; color: var(--blue-mid); font-weight: 500; font-size: 13px; }
 
+    /* ─── Prep cards ───────────────────────────────────────── */
+    .prep-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+      padding: 26px 28px; box-shadow: 0 10px 30px rgba(37,99,235,0.05); margin-bottom: 16px;
+    }
+    .prep-head { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
+    .prep-ico {
+      width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--blue-deep), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prep-ico.pink { background: linear-gradient(135deg, var(--pink), var(--pink-soft)); }
+    .prep-ico.teal { background: linear-gradient(135deg, var(--teal), #38BDF8); }
+    .prep-head h3 { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 500; color: var(--text-dark); line-height: 1.4; }
+    .prep-head .sub { font-size: 12px; color: var(--text-light); display: block; margin-top: 2px; }
+    .prep-thumb { width: 100%; height: 150px; object-fit: cover; border-radius: 14px; margin-bottom: 18px; display: block; }
+    .prep-card .glist li { font-size: 14px; }
+    .prep-card .mini { font-size: 13px; color: var(--text-light); margin-top: 12px; line-height: 1.75; }
+
     /* ─── Guide / lists ────────────────────────────────────── */
     .box {
       background: var(--white); border: 1px solid var(--border); border-radius: 20px;
@@ -470,48 +489,94 @@
       <section class="tab-panel" id="tab-bring">
         <span class="panel-label">Checklist</span>
         <h2 class="panel-title">持ち物・事前準備</h2>
-        <p class="panel-lead">合宿は、集中して作りきる時間です。当日の成果は事前準備で決まるので、必ずご準備を。</p>
-        <div class="box">
-          <h3>事前に決めてくること</h3>
-          <ul class="glist">
-            <li>作るものを1つに絞る（LP / アプリ / 講座 / 導線 など、まず1つ）</li>
-          </ul>
+        <p class="panel-lead">合宿は、集中して作りきる時間です。当日の成果は事前準備で決まるので、必ずご準備を。<br>カテゴリごとに分けています。上から順にチェックしてみてください。</p>
 
-          <h3>持参する素材</h3>
+        <!-- 事前準備 -->
+        <div class="prep-card">
+          <div class="prep-head">
+            <div class="prep-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.3 4.7 5.2.8-3.7 3.6.9 5.1L12 14.8 7.3 17.2l.9-5.1L4.5 8.5l5.2-.8L12 3z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>いちばん大事な事前準備<span class="sub">ここで当日の成果が決まります</span></h3>
+          </div>
           <ul class="glist">
-            <li>文章</li>
-            <li>画像（写真・ロゴ・参考ビジュアル）</li>
-            <li>価格や情報</li>
-            <li>参考にしたいURL など</li>
+            <li><strong>作るものを1つに絞る</strong>（LP / アプリ / 講座 / 導線 など、まず1つ）</li>
+            <li>持参する素材：文章／画像（写真・ロゴ・参考ビジュアル）／価格や情報／参考にしたいURL など</li>
           </ul>
+        </div>
 
-          <h3>当日の持ち物</h3>
+        <!-- 制作の持ち物 -->
+        <div class="prep-card">
+          <div class="prep-head">
+            <div class="prep-ico teal">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="11" rx="1.5" stroke="white" stroke-width="1.6"/><path d="M2 20h20" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>制作の持ち物<span class="sub">パソコンなど、作るための道具</span></h3>
+          </div>
+          <img src="image/work-room.webp" loading="lazy" alt="和室で集中作業" class="prep-thumb">
           <ul class="glist">
-            <li>ノートPC＋充電器（必須）</li>
+            <li><strong>ノートPC＋充電器（必須）</strong></li>
             <li>メモ帳・筆記用具</li>
+          </ul>
+        </div>
+
+        <!-- 泊まりの持ち物 -->
+        <div class="prep-card">
+          <div class="prep-head">
+            <div class="prep-ico pink">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 8h14l-1 12H6L5 8z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 016 0v2" stroke="white" stroke-width="1.6"/></svg>
+            </div>
+            <h3>泊まりの持ち物<span class="sub">宿泊にあたって必要なもの</span></h3>
+          </div>
+          <img src="image/onsen-view.webp" loading="lazy" alt="温泉でリフレッシュ" class="prep-thumb">
+          <ul class="glist">
             <li>洗顔・化粧水（宿のアメニティに無いため各自で）</li>
+            <li>マイパジャマ派の方は、パジャマを（浴衣はあります）</li>
             <li>歩きやすい靴（会場までの途中に階段があります）</li>
             <li>お箸など、こだわりがあれば</li>
           </ul>
+        </div>
 
-          <h3>服装（できれば白テーマで）</h3>
-          <ul class="glist">
-            <li>できれば白い服で（トップス・スカート・小物など）</li>
-            <li>特に「白いボトムス」があると◎。当日ちょっとしたお楽しみを用意しているので、みんなで撮る写真がそろってかわいくなります</li>
-          </ul>
-
-          <h3>宿に備え付けがあるもの（持参不要）</h3>
+        <!-- 宿に備え付け -->
+        <div class="prep-card">
+          <div class="prep-head">
+            <div class="prep-ico">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>宿に備え付けがあるもの<span class="sub">これは持ってこなくてOK</span></h3>
+          </div>
           <ul class="glist">
             <li>タオル・歯ブラシ・シャンプー類・浴衣・スリッパ など</li>
             <li>連泊の方は、タオルは2日間続けてお使いください</li>
           </ul>
+        </div>
 
-          <h3>お昼ごはんについて</h3>
+        <!-- 服装 -->
+        <div class="prep-card">
+          <div class="prep-head">
+            <div class="prep-ico pink">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 4l3 2 3-2 5 3-2 3-2-1v8H8v-8l-2 1-2-3 5-3z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>服装（できれば白テーマで）<span class="sub">みんなで撮る写真がそろって素敵に</span></h3>
+          </div>
+          <ul class="glist">
+            <li>できれば白い服で（トップス・スカート・小物など）</li>
+            <li>特に「白いボトムス」があると◎。当日ちょっとしたお楽しみを用意しています</li>
+          </ul>
+        </div>
+
+        <!-- お昼ごはん -->
+        <div class="prep-card">
+          <div class="prep-head">
+            <div class="prep-ico teal">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 11h16a0 0 0 010 0 8 8 0 01-16 0z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 11c0-4 3.6-6 8-6s8 2 8 6M3 20h18" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>お昼ごはんについて<span class="sub">DAY1のランチ</span></h3>
+          </div>
           <ul class="glist">
             <li>当日のお昼は各自持参、または近くに食べに行ってもOKです</li>
             <li>講師3人は食べながら宿に滞在しています</li>
           </ul>
-
           <div class="note">夜は<strong>海鮮料理</strong>を囲んでの交流会も。作る時間も楽しむ時間も、たっぷりです。</div>
         </div>
       </section>
