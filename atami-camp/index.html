@@ -538,10 +538,6 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       個人で取り組む課題
     </button>
-    <button class="nav-item" id="nav-codex" onclick="showTab('codex')">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      コーデックス入門
-    </button>
   </nav>
 
   <!-- ─── Main ────────────────────────────────────────────── -->
@@ -588,8 +584,8 @@
           </div>
           <div class="take-card">
             <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5L12 3z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-            <h4>コーデックスの使い方</h4>
-            <p>コーデックスでのLP制作の流れを、自分の手で再現できるようになる</p>
+            <h4>Codexの使い方</h4>
+            <p>CodexでのLP制作の流れを、自分の手で再現できるようになる</p>
           </div>
           <div class="take-card">
             <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -771,48 +767,115 @@
         <h2 class="panel-title">当日の最新トピックス</h2>
         <p class="panel-lead">今回の合宿で、私たちからシェアする最新コンテンツです。</p>
         <div class="topic-hero"><img src="image/kougi.png" loading="lazy" alt="最新AIトレンドの講義の様子"></div>
+        <p class="panel-lead">私たちがいま注目しているAIツール「Codex」を、はじめての方にも分かるようにまとめました。比較 → 導入 → 便利な機能 の順にご覧ください。</p>
+
+        <h3 class="block-title">Claude Code と Codex</h3>
+        <p class="panel-lead">どちらも「日本語で指示するだけでLP・サイト・ツールを作れる」AIエージェントです。できることはほぼ同じですが、得意なことが少しだけ違います。</p>
         <div class="topic-grid">
           <div class="topic-card">
-            <span class="num">Topic 01</span>
-            <h3>コーデックスでLPを作る方法</h3>
-            <p>Claude Codeとはまた違う、コーデックスを使ったLP制作の流れを実演＆手順でお渡しします。デザイン性のある仕上がりを、より簡単に。</p>
-            <span class="coming">当日公開・あとで動画も追加予定</span>
+            <span class="num">Anthropic 製</span>
+            <h3>Claude Code</h3>
+            <ul class="glist">
+              <li>先に広まったぶん、解説情報が多く調べながら始めやすい</li>
+              <li>すでに使い慣れている人はそのままでOK</li>
+              <li>がっつり使うなら上位プランが向いている</li>
+            </ul>
           </div>
           <div class="topic-card">
-            <span class="num">Topic 02</span>
-            <h3>コーデックスの活用方法</h3>
-            <p>そもそもコーデックスって何？どんな時に使う？Claude Codeとの使い分けは？最新の流れと、すぐ使える活用法をまとめます。</p>
-            <span class="coming">当日公開・あとで動画も追加予定</span>
+            <span class="num">OpenAI 製</span>
+            <h3>Codex</h3>
+            <ul class="glist">
+              <li>ChatGPTの有料プランの枠で使い始めやすい</li>
+              <li>画像生成と相性がよく、デザイン寄りの制作に強い</li>
+              <li>日本語で頼むだけで、完成品まで仕上げてくれる</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note"><strong>使い分けのコツ：</strong>どちらか一方ではなく、両方を場面で使い分けるのがおすすめです。片方でうまくいかない作業が、もう片方だとすんなり進むこともあります。</div>
+
+        <h3 class="block-title">デスクトップアプリの導入方法</h3>
+        <p class="panel-lead">Codexにはいくつかの使い方がありますが、迷ったら<strong>デスクトップアプリ版</strong>を入れておけばOK。パソコンの中のファイルをそのまま渡して作業してもらえるので、はじめての方でもいちばん簡単に始められます。ここからは、その導入手順を詳しくご案内します。</p>
+
+        <div class="box">
+          <div class="os-switch">
+            <button class="os-tab active" id="os-tab-mac" onclick="showOS('mac')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.8-.7 1.3 0 1.6.7 2.8.7 1.1 0 1.9-1.1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4-.1 0-2.3-.9-2.3-3.5zM14.3 5.7c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.3-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.1z"/></svg>
+              Mac
+            </button>
+            <button class="os-tab" id="os-tab-win" onclick="showOS('win')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.4l7.5-1v7.2H3V5.4zm0 13.2l7.5 1v-7.1H3v6.1zm8.4 1.1L21 21v-8.5h-9.6v7.2zm0-15.4v7.3H21V3l-9.6 1.3z"/></svg>
+              Windows
+            </button>
+          </div>
+
+          <div class="os-panel active" id="os-panel-mac">
+            <ul class="steps">
+              <li>Googleで「Codex」と検索し、いちばん上に出てくる<strong>OpenAIの公式サイト</strong>を開く</li>
+              <li>ページ内の <code>Download for macOS</code> ボタンをクリックし、ダウンロードが終わるまで待つ</li>
+              <li>ダウンロードしたファイルを開く</li>
+              <li>出てきたCodexのアイコンを、隣の<strong>アプリケーションフォルダー</strong>にドラッグ＆ドロップすれば完了</li>
+            </ul>
+          </div>
+
+          <div class="os-panel" id="os-panel-win">
+            <ul class="steps">
+              <li>タスクバーから <strong>Microsoft Store</strong> を開く（見つからないときは画面下の検索欄に「Microsoft Store」と入力）</li>
+              <li>上の検索バーに <code>OpenAI Codex</code> と入力して検索</li>
+              <li>検索結果のCodexの <strong>入手</strong> ボタンをクリックすると、自動でインストールが始まる（数分かかることがあります）</li>
+            </ul>
           </div>
         </div>
 
-        <h3 class="block-title">コーデックス はじめてガイド</h3>
         <div class="box">
-          <h3>コーデックスって？</h3>
-          <p>OpenAIが出しているAIコーディングエージェントです。Claude Codeと同じく、ターミナルに話しかけてLP・サイト・ツールを作れます。画像生成と組み合わせやすく、デザイン寄りのものを作るときに相性がいいのが特徴です。</p>
+          <h3>① ログイン</h3>
+          <p>アプリを起動するとログイン画面が表示されるので、普段使っている<strong>ChatGPTのアカウント</strong>でログインします。Google や Microsoft のアカウントで ChatGPT にログインしている方は、そのアカウントでも大丈夫です。</p>
 
-          <h3>ダウンロード方法</h3>
-          <ol class="steps">
-            <li>ターミナルを開く（Macは「ターミナル」アプリ）</li>
-            <li><code>npm install -g @openai/codex</code> を実行（※Node.jsが必要）</li>
-            <li><code>codex</code> と打って起動。初回はChatGPTアカウントまたはAPIキーでログイン</li>
-          </ol>
+          <h3>② 作業フォルダーを決める</h3>
+          <p>Codexに「どのフォルダーで作業してもらうか」を選びます。おすすめは <code>Codex</code> のような専用フォルダーを1つ作り、その中に <code>Codex/議事録</code> のように目的別の個別フォルダーを分けておく方法。あとから見返すときもすっきりして使いやすくなります。</p>
 
-          <h3>基本の使い方</h3>
-          <ul class="glist">
-            <li>作りたいものを、日本語で話しかけるだけ（Claude Codeと同じ感覚）</li>
-            <li>「こんなLPを作って」「ここをこう直して」で進めていける</li>
-            <li>うまくいかない時は、イメージや参考画像を見せると伝わりやすい</li>
-          </ul>
+          <h3>③ 安全のための注意</h3>
+          <p>Codexは指定したフォルダーの中だけで作業し、その外のファイルを触るときは基本的に毎回確認してくれます。だからこそ、作業させる範囲は1つのフォルダーに絞っておくのが安心です。給与明細や顧客情報など「見られたら困るファイル」は、専用フォルダーに直接置かないようにしましょう。どうしても使いたい場合は、原本ではなくコピーを置き、秘密の情報は書き換えておくのがおすすめです。</p>
+        </div>
 
-          <h3>こんな使い方ができます</h3>
-          <ul class="glist">
-            <li>デザイン性のあるLP制作（写真・ビジュアル多めも得意）</li>
-            <li>画像生成と組み合わせた提案資料づくり</li>
-            <li>既存コードの修正・整理</li>
-          </ul>
+        <h3 class="block-title">Codexの便利な機能</h3>
+        <p class="panel-lead">Codexにはうれしい機能がたくさん。ここでは代表的なものを、さらっとご紹介します。</p>
+        <div class="feat-grid">
+          <div class="feat-card">
+            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6M7 8h10v3a5 5 0 01-10 0V8zM12 16v6"/></svg></div>
+            <h4>プラグイン</h4>
+            <p>Gmail や Googleドライブ、Slack など、よく使うサービスと連携。アプリを行き来せず、作業をCodexの中だけで完結できます。</p>
+          </div>
 
-          <div class="note">インストール手順は変わることがあるので、<strong>当日いっしょに最新版で確認</strong>します。うまくいかなくても大丈夫、その場でサポートします。</div>
+          <div class="feat-card pick">
+            <span class="pick-badge">私たちの推し</span>
+            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5-6 6"/></svg></div>
+            <h4>画像生成</h4>
+            <p>Codexの中で、そのまま画像を作れます。別のツールを開かなくても、制作の途中で必要になった画像素材をその場で用意できるのが大きな強みです。</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
+            <h4>音声入力</h4>
+            <p>キーボードで打たなくても、声で話すだけで指示を文字にして入力。長めの指示もサッと伝えられて、思いのほか快適です。</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+            <h4>メモリ機能</h4>
+            <p>好みや作業スタイル、プロジェクトごとのルールを覚えてくれるので、毎回ゼロから説明する手間が減っていきます。</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+            <h4>コンピューターユーズ</h4>
+            <p>画面を見て、マウスやキーボードを自分で操作。連携していないアプリの操作まで任せられます（許可したアプリだけ・確認しながらが安心）。</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></div>
+            <h4>ゴールモード</h4>
+            <p>「最終的にこうなったらゴール」だけ伝えておくと、そこに到達するまで自動で作業を続けてくれます。前に張り付いておく必要がありません。</p>
+          </div>
         </div>
       </section>
 
@@ -845,122 +908,6 @@
             <span>棚卸しセッションのアーカイブ</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-        </div>
-      </section>
-
-      <!-- ─── コーデックス入門 ──────────────────────────── -->
-      <section class="tab-panel" id="tab-codex">
-        <span class="panel-label">Codex Guide</span>
-        <h2 class="panel-title">コーデックス入門</h2>
-        <p class="panel-lead">私たちがいま注目しているAIツール「コーデックス（Codex）」を、はじめての方にも分かるようにまとめました。比較 → 導入 → 便利な機能 の順にご覧ください。</p>
-
-        <h3 class="block-title">Claude Code と コーデックス</h3>
-        <p class="panel-lead">どちらも「日本語で指示するだけでLP・サイト・ツールを作れる」AIエージェントです。できることはほぼ同じですが、得意なことが少しだけ違います。</p>
-        <div class="topic-grid">
-          <div class="topic-card">
-            <span class="num">Anthropic 製</span>
-            <h3>Claude Code</h3>
-            <ul class="glist">
-              <li>先に広まったぶん、解説情報が多く調べながら始めやすい</li>
-              <li>すでに使い慣れている人はそのままでOK</li>
-              <li>がっつり使うなら上位プランが向いている</li>
-            </ul>
-          </div>
-          <div class="topic-card">
-            <span class="num">OpenAI 製</span>
-            <h3>コーデックス（Codex）</h3>
-            <ul class="glist">
-              <li>ChatGPTの有料プランの枠で使い始めやすい</li>
-              <li>画像生成と相性がよく、デザイン寄りの制作に強い</li>
-              <li>日本語で頼むだけで、完成品まで仕上げてくれる</li>
-            </ul>
-          </div>
-        </div>
-        <div class="note"><strong>使い分けのコツ：</strong>どちらか一方ではなく、両方を場面で使い分けるのがおすすめです。片方でうまくいかない作業が、もう片方だとすんなり進むこともあります。</div>
-
-        <h3 class="block-title">デスクトップアプリの導入方法</h3>
-        <p class="panel-lead">コーデックスにはいくつかの使い方がありますが、迷ったら<strong>デスクトップアプリ版</strong>を入れておけばOK。パソコンの中のファイルをそのまま渡して作業してもらえるので、はじめての方でもいちばん簡単に始められます。ここからは、その導入手順を詳しくご案内します。</p>
-
-        <div class="box">
-          <div class="os-switch">
-            <button class="os-tab active" id="os-tab-mac" onclick="showOS('mac')">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.8-.7 1.3 0 1.6.7 2.8.7 1.1 0 1.9-1.1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4-.1 0-2.3-.9-2.3-3.5zM14.3 5.7c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.3-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.1z"/></svg>
-              Mac
-            </button>
-            <button class="os-tab" id="os-tab-win" onclick="showOS('win')">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.4l7.5-1v7.2H3V5.4zm0 13.2l7.5 1v-7.1H3v6.1zm8.4 1.1L21 21v-8.5h-9.6v7.2zm0-15.4v7.3H21V3l-9.6 1.3z"/></svg>
-              Windows
-            </button>
-          </div>
-
-          <div class="os-panel active" id="os-panel-mac">
-            <ul class="steps">
-              <li>Googleで「Codex」と検索し、いちばん上に出てくる<strong>OpenAIの公式サイト</strong>を開く</li>
-              <li>ページ内の <code>Download for macOS</code> ボタンをクリックし、ダウンロードが終わるまで待つ</li>
-              <li>ダウンロードしたファイルを開く</li>
-              <li>出てきたコーデックスのアイコンを、隣の<strong>アプリケーションフォルダー</strong>にドラッグ＆ドロップすれば完了</li>
-            </ul>
-          </div>
-
-          <div class="os-panel" id="os-panel-win">
-            <ul class="steps">
-              <li>タスクバーから <strong>Microsoft Store</strong> を開く（見つからないときは画面下の検索欄に「Microsoft Store」と入力）</li>
-              <li>上の検索バーに <code>OpenAI Codex</code> と入力して検索</li>
-              <li>検索結果のコーデックスの <strong>入手</strong> ボタンをクリックすると、自動でインストールが始まる（数分かかることがあります）</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="box">
-          <h3>① ログイン</h3>
-          <p>アプリを起動するとログイン画面が表示されるので、普段使っている<strong>ChatGPTのアカウント</strong>でログインします。Google や Microsoft のアカウントで ChatGPT にログインしている方は、そのアカウントでも大丈夫です。</p>
-
-          <h3>② 作業フォルダーを決める</h3>
-          <p>コーデックスに「どのフォルダーで作業してもらうか」を選びます。おすすめは <code>Codex</code> のような専用フォルダーを1つ作り、その中に <code>Codex/議事録</code> のように目的別の個別フォルダーを分けておく方法。あとから見返すときもすっきりして使いやすくなります。</p>
-
-          <h3>③ 安全のための注意</h3>
-          <p>コーデックスは指定したフォルダーの中だけで作業し、その外のファイルを触るときは基本的に毎回確認してくれます。だからこそ、作業させる範囲は1つのフォルダーに絞っておくのが安心です。給与明細や顧客情報など「見られたら困るファイル」は、専用フォルダーに直接置かないようにしましょう。どうしても使いたい場合は、原本ではなくコピーを置き、秘密の情報は書き換えておくのがおすすめです。</p>
-        </div>
-
-        <h3 class="block-title">コーデックスの便利な機能</h3>
-        <p class="panel-lead">コーデックスにはうれしい機能がたくさん。ここでは代表的なものを、さらっとご紹介します。</p>
-        <div class="feat-grid">
-          <div class="feat-card">
-            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6M7 8h10v3a5 5 0 01-10 0V8zM12 16v6"/></svg></div>
-            <h4>プラグイン</h4>
-            <p>Gmail や Googleドライブ、Slack など、よく使うサービスと連携。アプリを行き来せず、作業をコーデックスの中だけで完結できます。</p>
-          </div>
-
-          <div class="feat-card pick">
-            <span class="pick-badge">私たちの推し</span>
-            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5-6 6"/></svg></div>
-            <h4>画像生成</h4>
-            <p>コーデックスの中で、そのまま画像を作れます。別のツールを開かなくても、制作の途中で必要になった画像素材をその場で用意できるのが大きな強みです。</p>
-          </div>
-
-          <div class="feat-card">
-            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
-            <h4>音声入力</h4>
-            <p>キーボードで打たなくても、声で話すだけで指示を文字にして入力。長めの指示もサッと伝えられて、思いのほか快適です。</p>
-          </div>
-
-          <div class="feat-card">
-            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
-            <h4>メモリ機能</h4>
-            <p>好みや作業スタイル、プロジェクトごとのルールを覚えてくれるので、毎回ゼロから説明する手間が減っていきます。</p>
-          </div>
-
-          <div class="feat-card">
-            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
-            <h4>コンピューターユーズ</h4>
-            <p>画面を見て、マウスやキーボードを自分で操作。連携していないアプリの操作まで任せられます（許可したアプリだけ・確認しながらが安心）。</p>
-          </div>
-
-          <div class="feat-card">
-            <div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></div>
-            <h4>ゴールモード</h4>
-            <p>「最終的にこうなったらゴール」だけ伝えておくと、そこに到達するまで自動で作業を続けてくれます。前に張り付いておく必要がありません。</p>
-          </div>
         </div>
       </section>
 
