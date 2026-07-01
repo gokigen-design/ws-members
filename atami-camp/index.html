@@ -347,6 +347,8 @@
     .member-detail .want-label { font-size: 12px; color: var(--text-light); letter-spacing: 0.05em; margin-bottom: 6px; }
     .member-detail .want { font-size: 17px; color: var(--text-dark); line-height: 1.7; font-weight: 500; }
     .member-detail .mnote { font-size: 14px; color: var(--text-light); line-height: 1.8; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); }
+    .member-detail .mref { font-size: 14px; color: var(--text-light); line-height: 1.8; margin-top: 12px; }
+    .member-detail .mref a { color: var(--blue-mid); text-decoration: underline; word-break: break-all; }
 
     /* ─── Placeholder ──────────────────────────────────────── */
     .placeholder {
@@ -612,55 +614,48 @@
         </div>
 
         <h3 class="block-title">一人ひとりの6時間プラン</h3>
-        <p class="panel-lead" style="margin-bottom:20px;">※ 中川さん・えびちゃんは、当日いっしょにゴールを決めましょう。</p>
+        <p class="panel-lead" style="margin-bottom:20px;">※ 事前アンケートの回答をもとに更新しています。くわもんさん・中川さん・えびちゃんは回答が来たら反映します。</p>
+
+        <div class="plan-card">
+          <div class="pname">あけみさん</div>
+          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">モヤモヤ度チェック診断が動いて、LINE導線に乗る形まで</span></div>
+          <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Claude Code</span></div>
+          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">診断の質問を固める → 診断ツール制作 → 結果画面 → LINE誘導。ステップメール自動化は範囲外</span></div>
+        </div>
 
         <div class="plan-card">
           <div class="pname">さーやん</div>
-          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">止まっていたLPを、完成・公開まで持っていく</span></div>
-          <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Claude Code（既存の続きから）</span></div>
-          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">止まった原因を洗い出す → 残りのセクションを作る → 公開（デプロイ）</span></div>
+          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">ごちゃごちゃ情報を一元管理できる“器”を作る</span></div>
+          <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Obsidian × Claude（メモの集約）</span></div>
+          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">バラバラのメモを1か所に集める → Claudeで整理の仕組みを作る → いつでも使える形に（LPは家で別途）</span></div>
         </div>
 
         <div class="plan-card">
           <div class="pname">きこさん</div>
-          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">会員サイトの雛形＋コンテンツ1本を入れる（脱・UTAGEの第一歩）</span></div>
-          <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Claude Code（index 1枚・ボタン切替型）</span></div>
-          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">UTAGEで今やっていることを棚卸し → 必要な機能を1つに絞る → 雛形 → 1講座分を入れる</span></div>
+          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">お教室先生向けAI講座の中身を固める → LP案まで</span></div>
+          <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Claudeで棚卸し → 体系化 → LP</span></div>
+          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">実務を棚卸し → AI化できる/できないを仕分け → 体系化 → LP案。GAS連携は設計＋着手 → 完成は持ち帰り</span></div>
         </div>
 
         <div class="plan-card">
           <div class="pname">ぞえさん</div>
-          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">一番効く1つ（診断ツール or LP1本）を動く形に</span></div>
+          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">診断ツールをWEB公開＋特典（資料3つ）を形に</span></div>
           <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Claude Code</span></div>
-          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">教育動画・特典・診断・LPの中から「今日やる1つ」を選ぶ → 完成 → LINE導線につなぐ</span></div>
+          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">デザイン済の診断ツールをWEBアップ → 資料を仕上げ → 導線に並べる。ハーネス設定は相談（動画は範囲外）</span></div>
         </div>
 
         <div class="plan-card">
           <div class="pname">まみさん</div>
-          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">まず1つ（LP or 会計簡略ツール）を動く形に</span></div>
-          <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Claude Code（必要ならGAS・LINE連携）</span></div>
-          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">一番時間を奪われている事務を1つ選ぶ → ツール化、または先にLPを1本完成</span></div>
+          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">アウトプット蓄積ツールの動く形（つぶやき → 蓄積）</span></div>
+          <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Claude Code（LINE連携は設計から）</span></div>
+          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">何を蓄積したいか決める → 蓄積の器を作る → 発信ネタが出る形に。自動連携は設計を丁寧に</span></div>
         </div>
 
         <div class="plan-card">
           <div class="pname">はぬちゃん</div>
-          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">サンプル1つ（提案書サイト or 当日アクティビティページ）を見せられる形に</span></div>
+          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">パーティー用サイトの「1イベント分の器」を1つ</span></div>
           <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Codex（デザイン性）／Claude Code</span></div>
-          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">海外のおしゃれなWeb招待状をモデリング → 1テーマでサンプル → 動き・写真を入れる</span></div>
-        </div>
-
-        <div class="plan-card">
-          <div class="pname">あけみさん</div>
-          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">「アプリ or サイト」を1つに決めて、1ページ（1画面）を公開まで</span></div>
-          <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Claude Code</span></div>
-          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">誰の何のためかをClaudeと壁打ち → どちらか1つに決定 → たたき台 → 1ページ仕上げ</span></div>
-        </div>
-
-        <div class="plan-card">
-          <div class="pname">くわもんさん</div>
-          <div class="plan-row"><span class="plabel goal">6hゴール</span><span class="ptext">「アプリ or サイト」を1つに決めて、1ページを公開まで</span></div>
-          <div class="plan-row"><span class="plabel">手段</span><span class="ptext">Claude Code</span></div>
-          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">目的を1つに絞る → たたき台を出す → 形を整えて公開</span></div>
+          <div class="plan-row"><span class="plabel">進め方</span><span class="ptext">やりたいことを1つに絞る → 招待状＋式次第＋写真の器 → 見せられる形に。写真は生成でOK</span></div>
         </div>
 
       </section>
@@ -874,15 +869,15 @@
 
   // ─── 参加者データ ───────────────────────────────
   var members = [
-    { id:'akemi', name:'あけみさん', stat:'構想段階', want:'アプリ または サイト', note:'' },
-    { id:'saa',   name:'さーやん',   stat:'作りかけ', want:'LPの完成（途中で止まっているので、合宿で仕上げる）', note:'' },
-    { id:'kiko',  name:'きこさん',   stat:'構想段階', want:'アプリ・ナレッジ蓄積・会員サイト', note:'相談：脱・UTAGEはできる？（コンテンツサイト・決済・顧客管理）' },
-    { id:'kuwa',  name:'くわもんさん', stat:'構想段階', want:'アプリ または サイト', note:'' },
-    { id:'hanu',  name:'はぬちゃん', stat:'構想段階', want:'お客様への提案書、またはパーティー当日に使える演出ツール', note:'' },
-    { id:'zoe',   name:'ぞえさん',   stat:'作りかけ', want:'LINE導線の構築（教育動画3本・LINE特典3つ・診断ツール・LPの完成）', note:'' },
-    { id:'naka',  name:'中川さん',   stat:'構想段階', want:'当日いっしょに決めましょう', note:'' },
-    { id:'mami',  name:'まみさん',   stat:'構想段階', want:'LP・アウトプットツール（LINE連携）・会計簡略システム', note:'相談：LINE連携のやり方' },
-    { id:'ebi',   name:'えびちゃん', stat:'準備中',   want:'作りたいものは、これから反映します', note:'' }
+    { id:'akemi', name:'あけみさん', stat:'診断ツール', want:'モヤモヤ度チェック診断（LINE登録プレゼント）。インスタ／Threadsのリンク先で使う', note:'診断 → 結果 → メルマガ5日間ステップの導線も検討中。地味すぎず、女性が好むデザインに', ref:'参考診断：<a href="https://japan-kokoro.com/shindan/jinkankei_youkai_shindan.html" target="_blank" rel="noopener">妖怪診断</a>／<a href="https://pr.ideally-college.com/myworkstyle/" target="_blank" rel="noopener">ワークスタイル診断</a>' },
+    { id:'saa',   name:'さーやん',   stat:'情報整理ツール', want:'情報整理ツール（スマホのメモを一元管理・いつでも使える自分用）', note:'LPは外部で別途進行中。当日は「情報管理」に集中したいとのこと', ref:'' },
+    { id:'kiko',  name:'きこさん',   stat:'講座づくり＋LP案', want:'お教室先生向けAI講座の中身を固める → LP案まで', note:'GAS連携（LINE自動配信）を今回やりたいと明言。沼なので当日は設計＋着手 → 完成は持ち帰り方針', ref:'参考：AIワークショップのLP（世界観）' },
+    { id:'kuwa',  name:'くわもんさん', stat:'回答待ち', want:'アンケートの回答待ち', note:'', ref:'' },
+    { id:'hanu',  name:'はぬちゃん', stat:'パーティー用アプリ', want:'パーティー当日にゲストが使える共有アプリ（招待状・式次第・写真・アクティビティ）', note:'やりたいことが多く絞りきれず焦り気味。当日は“1イベント分の器”1つに絞るのがカギ。写真は生成でOK', ref:'参考：Instagramのリール（世界観イメージ・正確なURLは要確認）' },
+    { id:'zoe',   name:'ぞえさん',   stat:'LINE導線', want:'LINE導線の特典づくり（診断ツール＋資料3つ）。登録 → 特典 → 教育動画 → 個別相談', note:'診断ツールをWEB公開＋資料を仕上げる。ハーネス設定は相談。動画3本は範囲外', ref:'参考：グリーン系（緑×黄）' },
+    { id:'naka',  name:'中川さん',   stat:'回答待ち', want:'アンケートの回答待ち', note:'', ref:'' },
+    { id:'mami',  name:'まみさん',   stat:'アウトプット蓄積ツール', want:'日々のアウトプットを蓄積 → 発信ネタやブログ記事が出来上がるツール（自分用）', note:'「LINEでつぶやいたら蓄積される」イメージ。連携がっつり希望なので、蓄積の仕組みは設計を丁寧に', ref:'' },
+    { id:'ebi',   name:'えびちゃん', stat:'回答待ち',   want:'アンケートの回答待ち', note:'', ref:'' }
   ];
 
   (function() {
@@ -906,7 +901,8 @@
       + '<span class="stat">' + m.stat + '</span>'
       + '<div class="want-label">合宿で作りたいもの</div>'
       + '<div class="want">' + m.want + '</div>'
-      + (m.note ? '<div class="mnote">' + m.note + '</div>' : '');
+      + (m.note ? '<div class="mnote">' + m.note + '</div>' : '')
+      + (m.ref ? '<div class="mref">' + m.ref + '</div>' : '');
     document.getElementById('member-detail').innerHTML = html;
   }
 </script>
