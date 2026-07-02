@@ -190,6 +190,8 @@
       margin-bottom: 14px;
     }
     .home-intro p { font-size: 14px; line-height: 1.95; color: var(--text); }
+    .home-intro p + p { margin-top: 14px; }
+    .home-intro .hi-lead { font-weight: 500; color: var(--text-dark); white-space: nowrap; font-size: clamp(14px, 4.1vw, 18px); margin-bottom: 4px; }
 
     /* ─── Gallery ──────────────────────────────────────────── */
     .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -305,12 +307,12 @@
     .glist li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--blue-light); margin-top: 9px; }
 
     .steps { list-style: none; counter-reset: st; display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
-    .steps li { counter-increment: st; display: flex; gap: 14px; align-items: flex-start; font-size: 14px; line-height: 1.8; }
+    .steps li { counter-increment: st; position: relative; padding-left: 42px; min-height: 28px; font-size: 15px; line-height: 1.95; }
     .steps li::before {
-      content: counter(st); flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      content: counter(st); position: absolute; left: 0; top: 1px; width: 28px; height: 28px; border-radius: 50%;
       background: linear-gradient(135deg, var(--blue-deep), var(--teal)); color: #fff;
-      font-family: 'Cormorant Garamond', serif; font-size: 14px;
-      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+      font-family: 'Cormorant Garamond', serif; font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
     }
     .steps code { background: #EEF4FF; border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; font-size: 13px; color: var(--blue-deep); }
 
@@ -442,7 +444,7 @@
     .nav-item { font-size: 15px; }
     .countdown .num { font-size: 34px; }
     .countdown .label, .countdown .sub { font-size: 14.5px; }
-    .home-intro h2 { font-size: clamp(22px, 3.6vw, 28px); }
+    .home-intro h2 { font-size: clamp(13px, 3.8vw, 26px); white-space: nowrap; letter-spacing: 0; }
     .home-intro p { font-size: 16px; }
     .note { font-size: 15px; }
 
@@ -486,7 +488,8 @@
       .side-brand { display: none; }
       .nav-item { width: 100%; font-size: 17px; padding: 16px 18px; }
       .nav-item svg { display: inline-block; width: 20px; height: 20px; }
-      .content { padding: 26px 18px 72px; }
+      .content { padding: 26px 16px 72px; }
+      .home-intro { padding: 26px 16px; }
       .take-grid { grid-template-columns: 1fr; }
       .feat-grid { grid-template-columns: 1fr; }
       .os-tab { padding: 10px 20px; font-size: 15px; }
@@ -560,19 +563,22 @@
         </div>
 
         <div class="home-intro">
-          <h2>学んだAIを、<br>自分のサービスに変える2日間</h2>
-          <p>AI合宿へのご参加、ありがとうございます。<br>“最新AI × 実践 × つながり” にどっぷり浸かる、AIづくしの1泊2日。<br>事前に決めてきたものを、仲間と講師といっしょに一気に形にしましょう。<br>当日の情報はこのページにまとめていきます。ブックマークしておいてくださいね。</p>
+          <h2>学んだAIを、自分のサービスに変える2日間</h2>
+          <p class="hi-lead">AI合宿へのご参加、ありがとうございます。</p>
+          <p>“最新AI × 実践 × つながり” に<br>どっぷり浸かる、AIづくしの1泊2日。</p>
+          <p>事前に決めてきたものを、仲間と講師と<br>いっしょに一気に形にしましょう。</p>
+          <p>当日の情報はこのページにまとめていきます。<br>ブックマークしておいてくださいね。</p>
           <p style="margin-top:16px; color:var(--text-light);">海鮮料理に、最新AI情報、すぐ使えるTIPS、成果発表会まで。作る時間も楽しむ時間もたっぷりです。わくわくしながらお越しください。当日お会いできるのを楽しみにしています。</p>
         </div>
 
         <h3 class="block-title">当日の雰囲気</h3>
         <div class="gallery">
-          <figure><img src="image/kougi.png" loading="lazy" alt="最新AIトレンドの講義"><figcaption>最新AIトレンドの講義</figcaption></figure>
-          <figure><img src="image/work-room.webp" loading="lazy" alt="和室で集中作業"><figcaption>和室で集中して作りきる</figcaption></figure>
-          <figure><img src="image/showcase.webp" loading="lazy" alt="成果発表会"><figcaption>成果発表会でお披露目</figcaption></figure>
-          <figure><img src="image/dinner-party.png" loading="lazy" alt="海鮮を囲む交流会"><figcaption>海の幸を囲んでの交流会</figcaption></figure>
-          <figure><img src="image/onsen-view.webp" loading="lazy" alt="温泉でリフレッシュ"><figcaption>温泉でリフレッシュ</figcaption></figure>
-          <figure><img src="image/deploy.png" loading="lazy" alt="完成して喜び合う"><figcaption>完成・公開してみんなで歓喜</figcaption></figure>
+          <figure><img src="image/kougi.png" loading="lazy" alt="最新AIトレンドの講義"><figcaption>最新AIトレンドの<br>講義</figcaption></figure>
+          <figure><img src="image/work-room.webp" loading="lazy" alt="和室で集中作業"><figcaption>和室で集中して<br>作りきる</figcaption></figure>
+          <figure><img src="image/showcase.webp" loading="lazy" alt="成果発表会"><figcaption>成果発表会で<br>お披露目</figcaption></figure>
+          <figure><img src="image/dinner-party.png" loading="lazy" alt="海鮮を囲む交流会"><figcaption>海の幸を囲んでの<br>交流会</figcaption></figure>
+          <figure><img src="image/onsen-view.webp" loading="lazy" alt="温泉でリフレッシュ"><figcaption>温泉で<br>リフレッシュ</figcaption></figure>
+          <figure><img src="image/deploy.png" loading="lazy" alt="完成して喜び合う"><figcaption>完成・公開して<br>みんなで歓喜</figcaption></figure>
         </div>
 
         <h3 class="block-title">これを持ち帰ろう</h3>
