@@ -335,6 +335,19 @@
     .os-panel { display: none; }
     .os-panel.active { display: block; }
 
+    /* トピック切り替え（Codex / LINE / Obsidian）*/
+    .topic-switch { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 28px; }
+    .topic-tab {
+      flex: 1 1 auto; min-width: 120px;
+      padding: 13px 18px; border: 1px solid var(--border); border-radius: 100px;
+      background: #fff; color: var(--text); font-size: 15px; font-weight: 700;
+      cursor: pointer; transition: all 0.18s; text-align: center;
+    }
+    .topic-tab:hover { border-color: var(--blue-light); color: var(--blue-deep); }
+    .topic-tab.active { background: linear-gradient(135deg, var(--blue-deep), var(--teal)); color: #fff; border-color: transparent; }
+    .topic-sub { display: none; }
+    .topic-sub.active { display: block; }
+
     /* ─── Feature cards (便利な機能) ───────────────────────── */
     .feat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .feat-card {
@@ -773,6 +786,15 @@
         <h2 class="panel-title">当日の最新トピックス</h2>
         <p class="panel-lead">今回の合宿で、私たちからシェアする最新コンテンツです。</p>
         <div class="topic-hero"><img src="image/kougi.png" loading="lazy" alt="最新AIトレンドの講義の様子"></div>
+        <p class="panel-lead">当日は時間が限られるので、この3つは下のタブを開いて、ご自分のペースで見ながら進めてみてください。分からないところは、合宿中にいつでも声をかけてくださいね。</p>
+
+        <div class="topic-switch">
+          <button class="topic-tab active" id="tt-codex" onclick="showTopic('codex')">Codexの使い方</button>
+          <button class="topic-tab" id="tt-line" onclick="showTopic('line')">LINEの入れ方</button>
+          <button class="topic-tab" id="tt-obsidian" onclick="showTopic('obsidian')">Obsidianの入れ方・活用</button>
+        </div>
+
+        <div class="topic-sub active" id="topic-codex">
         <p class="panel-lead">私たちがいま注目しているAIツール「Codex」を、はじめての方にも分かるようにまとめました。比較 → 導入 → 便利な機能 の順にご覧ください。</p>
 
         <h3 class="block-title">Claude Code と Codex</h3>
@@ -883,6 +905,74 @@
             <p>「最終的にこうなったらゴール」だけ伝えておくと、そこに到達するまで自動で作業を続けてくれます。前に張り付いておく必要がありません。</p>
           </div>
         </div>
+        </div><!-- /topic-codex -->
+
+        <!-- ════ LINE ════ -->
+        <div class="topic-sub" id="topic-line">
+          <p class="panel-lead">LINEは、教室のファンとつながって、自動で情報を届けられる場所です。まずは「LINE公式アカウント」を作るところから始めましょう。すべて無料でできます。</p>
+
+          <h3 class="block-title">まずはLINE公式アカウントを作る</h3>
+          <div class="box">
+            <ul class="steps">
+              <li>Googleで <strong>LINE公式アカウント</strong> と検索し、いちばん上の公式サイト（LINE for Business）を開く</li>
+              <li><strong>アカウントの開設（無料）</strong> のボタンをクリック</li>
+              <li>普段使っている<strong>LINEアカウント</strong>、またはメールアドレスでログイン・登録する</li>
+              <li>教室名などの<strong>アカウント名</strong>を入力して作成すれば完了。トークができる自分専用のLINEができます</li>
+            </ul>
+          </div>
+
+          <h3 class="block-title">最初にやっておく基本設定</h3>
+          <div class="box">
+            <h3>① あいさつメッセージ</h3>
+            <p>友だち追加した人に、いちばん最初に自動で届くメッセージです。かんたんな自己紹介と「このLINEで何が届くのか」を書いておくと、登録した人が安心します。</p>
+            <h3>② 応答モード</h3>
+            <p><strong>チャット</strong>（自分で返信）か <strong>Bot（自動応答）</strong>を選べます。最初は自動応答にしておけば、いない時間でも決まった返事を返せます。</p>
+            <h3>③ リッチメニュー</h3>
+            <p>トーク画面の下に出る大きなメニューです。「予約する」「診断を受ける」「お問い合わせ」など、来てほしい入口をボタンで置けます。</p>
+            <h3>④ プロフィール</h3>
+            <p>アイコン・カバー画像・ひとこと説明を整えると、教室の世界観が伝わります。</p>
+          </div>
+
+          <h3 class="block-title">発展：自動で配信する仕組み（あや式）</h3>
+          <p class="panel-lead">「決まった時間に自動でメッセージを送る」「診断や自動応答を作る」といった自動化もできます。ここは少しだけ専門的（LINE Developers とアプリの連携）なので、別に詳しい手順書を用意しています。</p>
+          <div class="note"><strong>当日について：</strong>自動化まで挑戦したい方は、この基本の公式アカウントを作っておいていただけると、当日いっしょにスムーズに進められます。分からないところはその場で聞いてくださいね。</div>
+        </div><!-- /topic-line -->
+
+        <!-- ════ OBSIDIAN ════ -->
+        <div class="topic-sub" id="topic-obsidian">
+          <p class="panel-lead">Obsidianは、思いついたこと・メモ・資料を1か所に貯めて、あとからすぐ探せる「第二の脳」のようなアプリです。むずかしく考えず、まず入れて、放り込むところから始めましょう。</p>
+
+          <h3 class="block-title">Obsidianを入れる</h3>
+          <div class="box">
+            <ul class="steps">
+              <li>Googleで <strong>Obsidian</strong> と検索し、公式サイト（<code>obsidian.md</code>）を開く</li>
+              <li><strong>Download</strong> から、自分のパソコン用（Mac / Windows）を選んでダウンロード</li>
+              <li>ダウンロードしたファイルを開いてインストール（Macは<strong>アプリケーションフォルダー</strong>にドラッグ＆ドロップ）</li>
+            </ul>
+          </div>
+
+          <h3 class="block-title">最初のセットアップ</h3>
+          <div class="box">
+            <ul class="steps">
+              <li>起動したら <strong>「新しい保管庫を作成」</strong> を選び、好きな場所に新しいフォルダを作る。これがあなたの<strong>保管庫（Vault）</strong>になります</li>
+              <li>左下の<strong>設定（歯車マーク）</strong>→ <code>About / General</code> の言語を <strong>日本語</strong> に変更して、画面を日本語にする</li>
+              <li>左の一覧で右クリック →<strong>新規フォルダ</strong>で、入れ物を3つ作る（例：<code>01_受信箱</code>／<code>02_プロジェクト</code>／<code>03_保管</code>）</li>
+            </ul>
+          </div>
+
+          <h3 class="block-title">使ってみる・育てる</h3>
+          <div class="box">
+            <h3>① まず1つ放り込む</h3>
+            <p><code>01_受信箱</code>の中に新しいノートを作り、いま思いついたこと・メモを1つ書いてみましょう。「きれいに整理しよう」としなくて大丈夫。まず入れることが大事です。</p>
+            <h3>② 見返す・探す</h3>
+            <p>見たいときは左のフォルダから開くだけ。上の<strong>検索（虫めがね）</strong>を使えば、言葉からノートをすぐ探せます。</p>
+            <h3>③ ノート同士をつなぐ</h3>
+            <p>ノートの中に <code>[[ノート名]]</code> と書くと、別のノートにリンクできます。つなぐほど情報が探しやすく「育って」いきます。</p>
+            <h3>④ スマホでも貯める</h3>
+            <p>スマホアプリ版も入れておくと、外出先でもメモできます（同じ保管庫を同期する設定にします）。</p>
+          </div>
+          <div class="note"><strong>続けるコツ：</strong>最初から完璧に分類しないこと。「とりあえず受信箱に放り込む → あとで整える」くらいがいちばん続きます。</div>
+        </div><!-- /topic-obsidian -->
       </section>
 
       <!-- ════ TASKS ════ -->
@@ -946,6 +1036,14 @@
     document.querySelectorAll('.os-tab').forEach(function(t){ t.classList.remove('active'); });
     document.getElementById('os-panel-' + os).classList.add('active');
     document.getElementById('os-tab-' + os).classList.add('active');
+  }
+
+  // ─── トピック切り替え（Codex / LINE / Obsidian）───
+  function showTopic(id) {
+    document.querySelectorAll('.topic-sub').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.topic-tab').forEach(function(t){ t.classList.remove('active'); });
+    document.getElementById('topic-' + id).classList.add('active');
+    document.getElementById('tt-' + id).classList.add('active');
   }
 
   // ─── カウントダウン ─────────────────────────────
