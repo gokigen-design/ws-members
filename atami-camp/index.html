@@ -387,6 +387,20 @@
     .grp-tag.wait { background: #94A3B8; }
     .grp-names { font-size: 15px; color: var(--text-dark); line-height: 1.7; }
 
+    /* ─── 使い方ガイドリンク（個人課題タブ上部）──────────── */
+    .guide-links { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+    .guide-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border: 1.5px solid var(--border); background: var(--white);
+      color: var(--text-dark); font-family: 'Noto Sans JP', sans-serif; font-size: 15px; font-weight: 500;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .guide-link:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,99,235,0.1); }
+    .guide-link.obs { border-color: #C4B5FD; color: #6D28D9; }
+    .guide-link.line2 { border-color: #86EFAC; color: #15803D; }
+    .guide-block { border-top: 2px solid var(--border); margin-top: 44px; padding-top: 26px; scroll-margin-top: 80px; }
+    .guide-block > .gtitle { font-family: 'Noto Serif JP', serif; font-weight: 500; font-size: 22px; color: var(--text-dark); margin-bottom: 8px; }
+
     /* ─── Members (clickable) ──────────────────────────────── */
     .member-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
     .member-btn {
@@ -777,16 +791,7 @@
         <h2 class="panel-title">当日の最新トピックス</h2>
         <p class="panel-lead">今回の合宿で、私たちからシェアする最新コンテンツです。</p>
         <div class="topic-hero"><img src="image/kougi.png" loading="lazy" alt="最新AIトレンドの講義の様子"></div>
-        <p class="panel-lead">当日は時間が限られるので、この3つは下のタブを開いて、ご自分のペースで見ながら進めてみてください。分からないところは、合宿中にいつでも声をかけてくださいね。</p>
-
-        <div class="topic-switch">
-          <button class="topic-tab active" id="tt-codex" onclick="showTopic('codex')">Codexの使い方</button>
-          <button class="topic-tab" id="tt-line" onclick="showTopic('line')">LINEの入れ方</button>
-          <button class="topic-tab" id="tt-obsidian" onclick="showTopic('obsidian')">Obsidianの入れ方・活用</button>
-        </div>
-
-        <div class="topic-sub active" id="topic-codex">
-        <p class="panel-lead">私たちがいま注目しているAIツール「Codex」を、はじめての方にも分かるようにまとめました。比較 → 導入 → 便利な機能 の順にご覧ください。</p>
+        <p class="panel-lead">今回の目玉は <strong>Codex</strong>。はじめての方にも分かるよう、比較 → 導入 → 便利な機能 の順にまとめました。分からないところは、合宿中にいつでも声をかけてくださいね。<br>（LINEの入れ方・Obsidianの活用は「個人で取り組む課題」タブの上部にまとめています）</p>
 
         <h3 class="block-title">Claude Code と Codex</h3>
         <p class="panel-lead">どちらも「日本語で指示するだけでLP・サイト・ツールを作れる」AIエージェントです。できることはほぼ同じですが、得意なことが少しだけ違います。</p>
@@ -896,41 +901,48 @@
             <p>「最終的にこうなったらゴール」だけ伝えておくと、そこに到達するまで自動で作業を続けてくれます。前に張り付いておく必要がありません。</p>
           </div>
         </div>
-        </div><!-- /topic-codex -->
 
-        <!-- ════ LINE ════ -->
-        <div class="topic-sub" id="topic-line">
-          <p class="panel-lead">LINEは、教室のファンとつながって、自動で情報を届けられる場所です。まずは「LINE公式アカウント」を作るところから始めましょう。すべて無料でできます。</p>
+      </section>
 
-          <h3 class="block-title">まずはLINE公式アカウントを作る</h3>
-          <div class="box">
-            <ul class="steps">
-              <li>Googleで <strong>LINE公式アカウント</strong> と検索し、いちばん上の公式サイト（LINE for Business）を開く</li>
-              <li><strong>アカウントの開設（無料）</strong> のボタンをクリック</li>
-              <li>普段使っている<strong>LINEアカウント</strong>、またはメールアドレスでログイン・登録する</li>
-              <li>教室名などの<strong>アカウント名</strong>を入力して作成すれば完了。トークができる自分専用のLINEができます</li>
-            </ul>
-          </div>
+      <!-- ════ TASKS ════ -->
+      <section class="tab-panel" id="tab-tasks">
+        <span class="panel-label">Members</span>
+        <h2 class="panel-title">個人で取り組む課題</h2>
+        <p class="panel-lead">名前を押すと、その人が合宿で「何を・何で・どうしたいか」が見られます。お互いを知って、刺激し合いましょう。</p>
 
-          <h3 class="block-title">最初にやっておく基本設定</h3>
-          <div class="box">
-            <h3>① あいさつメッセージ</h3>
-            <p>友だち追加した人に、いちばん最初に自動で届くメッセージです。かんたんな自己紹介と「このLINEで何が届くのか」を書いておくと、登録した人が安心します。</p>
-            <h3>② 応答モード</h3>
-            <p><strong>チャット</strong>（自分で返信）か <strong>Bot（自動応答）</strong>を選べます。最初は自動応答にしておけば、いない時間でも決まった返事を返せます。</p>
-            <h3>③ リッチメニュー</h3>
-            <p>トーク画面の下に出る大きなメニューです。「予約する」「診断を受ける」「お問い合わせ」など、来てほしい入口をボタンで置けます。</p>
-            <h3>④ プロフィール</h3>
-            <p>アイコン・カバー画像・ひとこと説明を整えると、教室の世界観が伝わります。</p>
-          </div>
+        <div class="guide-links">
+          <a href="#guide-obsidian" class="guide-link obs">Obsidianの入れ方・活用</a>
+          <a href="#guide-line" class="guide-link line2">LINEの入れ方（ハーネス）</a>
+        </div>
 
-          <h3 class="block-title">発展：自動で配信する仕組み（あや式）</h3>
-          <p class="panel-lead">「決まった時間に自動でメッセージを送る」「診断や自動応答を作る」といった自動化もできます。ここは少しだけ専門的（LINE Developers とアプリの連携）なので、別に詳しい手順書を用意しています。</p>
-          <div class="note"><strong>当日について：</strong>自動化まで挑戦したい方は、この基本の公式アカウントを作っておいていただけると、当日いっしょにスムーズに進められます。分からないところはその場で聞いてくださいね。</div>
-        </div><!-- /topic-line -->
+        <h3 class="block-title">ざっくりグループ分け（講師用）</h3>
+        <div class="group-overview">
+          <div class="grp"><span class="grp-tag obs">情報整理（Obsidian系）</span><span class="grp-names">さーやん・まみさん</span></div>
+          <div class="grp"><span class="grp-tag line">LINE・診断</span><span class="grp-names">あけみさん・ぞえさん</span></div>
+          <div class="grp"><span class="grp-tag lp">講座・LP</span><span class="grp-names">きこさん・えびちゃん</span></div>
+          <div class="grp"><span class="grp-tag app">アプリ・サイト</span><span class="grp-names">はぬちゃん</span></div>
+          <div class="grp"><span class="grp-tag wait">回答待ち</span><span class="grp-names">くわもんさん・中川さん</span></div>
+        </div>
 
-        <!-- ════ OBSIDIAN ════ -->
-        <div class="topic-sub" id="topic-obsidian">
+        <h3 class="block-title">一人ひとりの内容</h3>
+        <div class="member-tabs" id="member-tabs"></div>
+        <div class="member-detail" id="member-detail"></div>
+
+        <h3 class="block-title">関連リンク</h3>
+        <div class="links">
+          <a href="https://atami-ai-2026.pages.dev/" target="_blank" rel="noopener" class="link-item">
+            <span>AI合宿の案内ページ（LP）</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://gokigen-design.github.io/ws-members/tanaorosgi/archive.html" target="_blank" rel="noopener" class="link-item">
+            <span>棚卸しセッションのアーカイブ</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- ════ Obsidian ガイド ════ -->
+        <div class="guide-block" id="guide-obsidian">
+          <div class="gtitle">Obsidianの入れ方・活用</div>
           <p class="panel-lead">Obsidianは、思いついたこと・メモ・資料を1か所に貯めて、あとからすぐ探せる「第二の脳」のようなアプリです。むずかしく考えず、まず入れて、放り込むところから始めましょう。</p>
 
           <h3 class="block-title">Obsidianを入れる</h3>
@@ -963,38 +975,38 @@
             <p>スマホアプリ版も入れておくと、外出先でもメモできます（同じ保管庫を同期する設定にします）。</p>
           </div>
           <div class="note"><strong>続けるコツ：</strong>最初から完璧に分類しないこと。「とりあえず受信箱に放り込む → あとで整える」くらいがいちばん続きます。</div>
-        </div><!-- /topic-obsidian -->
-      </section>
-
-      <!-- ════ TASKS ════ -->
-      <section class="tab-panel" id="tab-tasks">
-        <span class="panel-label">Members</span>
-        <h2 class="panel-title">個人で取り組む課題</h2>
-        <p class="panel-lead">名前を押すと、その人が合宿で「何を・何で・どうしたいか」が見られます。お互いを知って、刺激し合いましょう。</p>
-
-        <h3 class="block-title">ざっくりグループ分け（講師用）</h3>
-        <div class="group-overview">
-          <div class="grp"><span class="grp-tag obs">情報整理（Obsidian系）</span><span class="grp-names">さーやん・まみさん</span></div>
-          <div class="grp"><span class="grp-tag line">LINE・診断</span><span class="grp-names">あけみさん・ぞえさん</span></div>
-          <div class="grp"><span class="grp-tag lp">講座・LP</span><span class="grp-names">きこさん・えびちゃん</span></div>
-          <div class="grp"><span class="grp-tag app">アプリ・サイト</span><span class="grp-names">はぬちゃん</span></div>
-          <div class="grp"><span class="grp-tag wait">回答待ち</span><span class="grp-names">くわもんさん・中川さん</span></div>
         </div>
 
-        <h3 class="block-title">一人ひとりの内容</h3>
-        <div class="member-tabs" id="member-tabs"></div>
-        <div class="member-detail" id="member-detail"></div>
+        <!-- ════ LINE ガイド ════ -->
+        <div class="guide-block" id="guide-line">
+          <div class="gtitle">LINEの入れ方（ハーネス）</div>
+          <p class="panel-lead">LINEは、教室のファンとつながって、自動で情報を届けられる場所です。まずは「LINE公式アカウント」を作るところから始めましょう。すべて無料でできます。</p>
 
-        <h3 class="block-title">関連リンク</h3>
-        <div class="links">
-          <a href="https://atami-ai-2026.pages.dev/" target="_blank" rel="noopener" class="link-item">
-            <span>AI合宿の案内ページ（LP）</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="https://gokigen-design.github.io/ws-members/tanaorosgi/archive.html" target="_blank" rel="noopener" class="link-item">
-            <span>棚卸しセッションのアーカイブ</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+          <h3 class="block-title">まずはLINE公式アカウントを作る</h3>
+          <div class="box">
+            <ul class="steps">
+              <li>Googleで <strong>LINE公式アカウント</strong> と検索し、いちばん上の公式サイト（LINE for Business）を開く</li>
+              <li><strong>アカウントの開設（無料）</strong> のボタンをクリック</li>
+              <li>普段使っている<strong>LINEアカウント</strong>、またはメールアドレスでログイン・登録する</li>
+              <li>教室名などの<strong>アカウント名</strong>を入力して作成すれば完了。トークができる自分専用のLINEができます</li>
+            </ul>
+          </div>
+
+          <h3 class="block-title">最初にやっておく基本設定</h3>
+          <div class="box">
+            <h3>① あいさつメッセージ</h3>
+            <p>友だち追加した人に、いちばん最初に自動で届くメッセージです。かんたんな自己紹介と「このLINEで何が届くのか」を書いておくと、登録した人が安心します。</p>
+            <h3>② 応答モード</h3>
+            <p><strong>チャット</strong>（自分で返信）か <strong>Bot（自動応答）</strong>を選べます。最初は自動応答にしておけば、いない時間でも決まった返事を返せます。</p>
+            <h3>③ リッチメニュー</h3>
+            <p>トーク画面の下に出る大きなメニューです。「予約する」「診断を受ける」「お問い合わせ」など、来てほしい入口をボタンで置けます。</p>
+            <h3>④ プロフィール</h3>
+            <p>アイコン・カバー画像・ひとこと説明を整えると、教室の世界観が伝わります。</p>
+          </div>
+
+          <h3 class="block-title">発展：自動で配信する仕組み（あや式）</h3>
+          <p class="panel-lead">「決まった時間に自動でメッセージを送る」「診断や自動応答を作る」といった自動化もできます。ここは少しだけ専門的（LINE Developers とアプリの連携）なので、別に詳しい手順書を用意しています。</p>
+          <div class="note"><strong>当日について：</strong>自動化まで挑戦したい方は、この基本の公式アカウントを作っておいていただけると、当日いっしょにスムーズに進められます。分からないところはその場で聞いてくださいね。</div>
         </div>
       </section>
 
